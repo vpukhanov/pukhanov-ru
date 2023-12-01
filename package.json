@@ -13,6 +13,7 @@
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.0.3",
     "@types/mdx": "^2.0.10",
+    "fast-glob": "^3.3.2",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18"
