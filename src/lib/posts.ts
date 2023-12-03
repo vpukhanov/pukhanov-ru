@@ -1,5 +1,11 @@
 import { async as glob } from "fast-glob";
 
+type PostMetadata = {
+  title: string;
+  description: string;
+  datePublished: string;
+};
+
 export async function posts() {
   const paths = await glob("src/app/\\(prose\\)/posts/(*)/page.mdx");
 
@@ -11,7 +17,7 @@ export async function posts() {
 
   const posts = slugs.map((slug, index) => ({
     slug,
-    metadata: imports[index].metadata,
+    metadata: imports[index].metadata as PostMetadata,
   }));
 
   // Sort by datePublished, newest to oldest
