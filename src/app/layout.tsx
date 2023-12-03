@@ -3,6 +3,7 @@ import { Mulish } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import Flag from "@/components/flag";
+import { Analytics } from "@vercel/analytics/react";
 
 const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 
@@ -47,6 +48,7 @@ export default function RootLayout({
           </header>
           <main>{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   );
