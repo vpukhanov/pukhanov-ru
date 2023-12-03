@@ -19,6 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
+      <head>
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          href="/posts/feed.xml"
+        />
+      </head>
       <body
         className={`bg-white text-slate-900 antialiased ${mulish.className}`}
       >
