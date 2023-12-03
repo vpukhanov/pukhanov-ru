@@ -1,6 +1,6 @@
 import { async as glob } from "fast-glob";
 
-type PostMetadata = {
+export type PostMetadata = {
   title: string;
   description: string;
   datePublished: string;
