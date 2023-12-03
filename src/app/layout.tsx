@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={`bg-white text-slate-900 antialiased ${mulish.className}`}
       >
-        <div className="mx-auto max-w-2xl px-2 py-10">
+        <div className="mx-auto max-w-2xl px-4 py-10">
           <header className="mb-12 flex items-center justify-between text-lg">
             <Link href="/" className="font-bold hover:underline">
               Вячеслав Пуханов
