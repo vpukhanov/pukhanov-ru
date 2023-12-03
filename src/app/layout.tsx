@@ -22,12 +22,13 @@ export default function RootLayout({
         className={`bg-white text-slate-900 antialiased ${mulish.className}`}
       >
         <div className="mx-auto max-w-2xl px-2 py-10">
-          <header className="mb-10 flex items-center justify-between text-xl">
+          <header className="mb-10 flex items-center justify-between text-lg">
             <Link href="/" className="font-bold">
               Вячеслав Пуханов
             </Link>
-            <nav className="space-x-6">
+            <nav className="space-x-4">
               <Link href="/">Обо мне</Link>
+              <span>/</span>
               <Link href="/posts/">Блог</Link>
             </nav>
           </header>
