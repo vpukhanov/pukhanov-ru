@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import Flag from "@/components/flag";
 
 const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 
@@ -22,19 +23,20 @@ export default function RootLayout({
         className={`bg-white text-slate-900 antialiased ${mulish.className}`}
       >
         <div className="mx-auto max-w-2xl px-4 py-10">
-          <header className="mb-12 flex items-center justify-between text-lg">
+          <header className="mb-12 flex items-center text-lg tracking-tight">
             <Link href="/" className="font-bold hover:underline">
               Вячеслав Пуханов
             </Link>
-            <nav className="space-x-4">
+            <nav className="ml-auto space-x-4">
               <Link href="/" className="underline">
-                Обо мне
+                CV
               </Link>
               <span>/</span>
               <Link href="/posts" className="underline">
                 Блог
               </Link>
             </nav>
+            <Flag />
           </header>
           <main>{children}</main>
         </div>
