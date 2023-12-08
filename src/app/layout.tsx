@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import Flag from "@/components/flag";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 
@@ -49,6 +50,7 @@ export default function RootLayout({
           <main>{children}</main>
         </div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
