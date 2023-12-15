@@ -1,7 +1,7 @@
-import { feed } from "@/lib/feed";
+import { postsAtom } from "@/lib/atom";
 
 export async function GET() {
-  return new Response(await feed(), {
+  return new Response(await postsAtom(), {
     headers: {
       "Content-Type": "text/xml; charset=utf-8",
     },
