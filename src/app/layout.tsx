@@ -10,8 +10,6 @@ const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
   title: "Вячеслав Пуханов",
-  description:
-    "Я — ведущий фронтенд-разработчик в Тинькофф, где мы создаем лучшее медиа о финансах, жизни и опыте — Тинькофф Журнал. Это личный сайт, где я выражаю исключительно свои мнения и взгляды.",
 };
 
 export default function RootLayout({
