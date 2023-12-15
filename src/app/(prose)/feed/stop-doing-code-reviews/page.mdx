@@ -1,3 +1,5 @@
+import DatePublished from "@/components/date-published";
+
 export const metadata = {
   title: "📝 Why you should stop doing code reviews!",
   datePublished: "2023-12-15",
@@ -11,8 +13,4 @@ export const metadata = {
   https://vgallet.github.io/posts/code-review/
 </a>
 
-<small className="group-[.is-list]:hidden">
-  <time dateTime={metadata.datePublished}>
-    Опубликовано {metadata.datePublished}
-  </time>
-</small>
+<DatePublished dateTime={metadata.datePublished} />
