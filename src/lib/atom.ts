@@ -1,7 +1,7 @@
 import { Feed } from "feed";
 import { posts } from "./posts";
 
-export async function feed() {
+export async function postsAtom() {
   const f = new Feed({
     title: "Вячеслав Пуханов",
     id: "https://pukhanov.ru/posts/feed.xml",
