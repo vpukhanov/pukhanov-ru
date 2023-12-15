@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
 
+import { feed } from "@/lib/feed";
 import { posts } from "@/lib/posts";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const list = await posts();
+  const [postItems, feedItems] = await Promise.all([posts(), feed()]);
 
   return [
     {
@@ -18,8 +19,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: "https://pukhanov.ru/feed",
       priority: 0.7,
     },
-    ...list.map((post) => ({
+    ...postItems.map((post) => ({
       url: `https://pukhanov.ru/posts/${post.slug}`,
+    })),
+    ...feedItems.map((item) => ({
+      url: `https://pukhanov.ru/feed/${item.slug}`,
     })),
   ];
 }
