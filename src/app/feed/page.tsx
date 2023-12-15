@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { FeedMetadata, feed } from '@/lib/feed';
+import FeedNotice from '@/components/feed-notice';
 
 export const metadata: Metadata = {
   title: "Лента",
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
 export default async function Feed() {
 	const items = await feed();
 	return <div>
+		<FeedNotice />
 		{items.map(i => <FeedItem key={i.slug} {...i} />)}	
 	</div>
 }
