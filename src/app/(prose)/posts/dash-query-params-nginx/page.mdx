@@ -1,3 +1,5 @@
+import DatePublished from "@/components/date-published";
+
 export const metadata = {
   title: "Чтение query-параметров с дефисами в NGINX конфиге",
   description:
@@ -5,7 +7,7 @@ export const metadata = {
   datePublished: "2022-07-28",
 };
 
-# Чтение query-параметров с дефисами в NGINX конфиге
+# {metadata.title}
 
 Для query-параметров в NGINX конфиге автоматически генерируются переменные вида `$arg_<имя>`, которые можно использовать в настройках. Например, чтобы обойти кеш когда в URL есть query-параметр nocache, можно написать такое:
 
@@ -33,6 +35,4 @@ proxy_cache_bypass $param_qa_nocache;
 proxy_no_cache $param_qa_nocache;
 ```
 
-<small>
-  Опубликовано <time dateTime="2022-07-28">2022-07-28</time>
-</small>
+<DatePublished dateTime={metadata.datePublished} />
