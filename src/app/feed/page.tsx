@@ -15,7 +15,7 @@ export default async function Feed() {
 async function FeedItem({slug, metadata}: { slug: string; metadata: FeedMetadata }) {
 	const Content = (await import(`@/app/(prose)/feed/${slug}/page.mdx`)).default
 	return <article className="prose prose-h1:text-lg prose-h1:font-semibold mb-10">
-		<time className="text-sm text-slate-500" dateTime={metadata.datePublished}>{metadata.datePublished}</time>
+		<time className="block text-sm font-light mb-1" dateTime={metadata.datePublished}>{metadata.datePublished}</time>
 		<Content />
 	</article>
 }
