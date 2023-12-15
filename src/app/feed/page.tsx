@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 import FeedNotice from "@/components/feed-notice";
 import { FeedMetadata, feed } from "@/lib/feed";
@@ -30,12 +31,12 @@ async function FeedItem({
   const Content = (await import(`@/app/(prose)/feed/${slug}/page.mdx`)).default;
   return (
     <article className="prose mb-10 prose-h1:text-lg prose-h1:font-semibold">
-      <time
-        className="mb-1 block text-sm font-light"
-        dateTime={metadata.datePublished}
+      <Link
+        href={`/feed/${slug}`}
+        className="inline-block mb-1 text-sm font-light hover:underline"
       >
-        {metadata.datePublished}
-      </time>
+        <time dateTime={metadata.datePublished}>{metadata.datePublished}</time>
+      </Link>
       <Content />
     </article>
   );
