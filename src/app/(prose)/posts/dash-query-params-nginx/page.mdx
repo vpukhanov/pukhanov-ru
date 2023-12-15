@@ -1,8 +1,9 @@
 export const metadata = {
-    title: 'Чтение query-параметров с дефисами в NGINX конфиге',
-    description: 'Для query-параметров в NGINX конфиге автоматически генерируются переменные вида $arg_<имя>. Но если в имени параметра есть дефисы, переменную нужно создать вручную.',
-    datePublished: '2022-07-28'
-}
+  title: "Чтение query-параметров с дефисами в NGINX конфиге",
+  description:
+    "Для query-параметров в NGINX конфиге автоматически генерируются переменные вида $arg_<имя>. Но если в имени параметра есть дефисы, переменную нужно создать вручную.",
+  datePublished: "2022-07-28",
+};
 
 # Чтение query-параметров с дефисами в NGINX конфиге
 
@@ -32,4 +33,6 @@ proxy_cache_bypass $param_qa_nocache;
 proxy_no_cache $param_qa_nocache;
 ```
 
-<small>Опубликовано <time dateTime="2022-07-28">2022-07-28</time></small>
+<small>
+  Опубликовано <time dateTime="2022-07-28">2022-07-28</time>
+</small>

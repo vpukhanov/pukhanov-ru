@@ -11,17 +11,17 @@ export async function feed() {
   // src/app/(prose)/feed/<name>/page.mdx -> <name>
   const slugs = paths.map((path) => path.split("/").at(-2)!);
   const imports = await Promise.all(
-	slugs.map(slug => import(`@/app/(prose)/feed/${slug}/page.mdx`)),
+    slugs.map((slug) => import(`@/app/(prose)/feed/${slug}/page.mdx`)),
   );
 
   const feed = slugs.map((slug, index) => ({
-	slug,
-	metadata: imports[index].metadata as FeedMetadata,
+    slug,
+    metadata: imports[index].metadata as FeedMetadata,
   }));
 
   // Sort by datePublished, newest to oldest
   feed.sort(
-	(a, b) => -a.metadata.datePublished.localeCompare(b.metadata.datePublished),
+    (a, b) => -a.metadata.datePublished.localeCompare(b.metadata.datePublished),
   );
 
   return feed;
