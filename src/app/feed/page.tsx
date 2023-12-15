@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function Feed() {
   const items = await feed();
   return (
-    <div>
+    <div className="group is-list">
       <FeedNotice />
       {items.map((i) => (
         <FeedItem key={i.slug} {...i} />
