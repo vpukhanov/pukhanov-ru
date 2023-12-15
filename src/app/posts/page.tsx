@@ -5,6 +5,8 @@ import { PostMetadata, posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Блог",
+  description:
+    "Это личный блог, где я выражаю исключительно свои мнения и взгляды.",
 };
 
 export default async function Posts() {

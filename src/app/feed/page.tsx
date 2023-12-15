@@ -5,6 +5,7 @@ import { FeedMetadata, feed } from "@/lib/feed";
 
 export const metadata: Metadata = {
   title: "Лента",
+  description: "В ленте я публикую ссылки на интересный контент других людей.",
 };
 
 export default async function Feed() {
