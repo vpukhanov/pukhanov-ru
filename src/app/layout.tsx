@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import { Mulish } from "next/font/google";
-import "./globals.css";
-import Link from "next/link";
-import Flag from "@/components/flag";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { Mulish } from "next/font/google";
+import Link from "next/link";
+
+import Flag from "@/components/flag";
+
+import "./globals.css";
 
 const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
   title: "Вячеслав Пуханов",
-  description:
-    "Я — ведущий фронтенд-разработчик в Тинькофф, где мы создаем лучшее медиа о финансах, жизни и опыте — Тинькофф Журнал. Это личный сайт, где я выражаю исключительно свои мнения и взгляды.",
 };
 
 export default function RootLayout({
@@ -32,20 +32,26 @@ export default function RootLayout({
         className={`bg-white text-slate-900 antialiased ${mulish.className}`}
       >
         <div className="mx-auto max-w-2xl px-4 py-10">
-          <header className="mb-12 flex items-center text-lg tracking-tight">
-            <Link href="/" className="font-bold hover:underline">
-              Вячеслав Пуханов
-            </Link>
-            <nav className="ml-auto space-x-4">
+          <header className="mb-12 text-lg tracking-tight">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="font-bold hover:underline">
+                Вячеслав Пуханов
+              </Link>
+              <Flag />
+            </div>
+            <nav className="space-x-4">
               <Link href="/" className="underline">
-                CV
+                Обо мне
               </Link>
               <span>/</span>
               <Link href="/posts" className="underline">
                 Блог
               </Link>
+              <span>/</span>
+              <Link href="/feed" className="underline">
+                Лента
+              </Link>
             </nav>
-            <Flag />
           </header>
           <main>{children}</main>
         </div>

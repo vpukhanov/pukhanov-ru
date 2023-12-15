@@ -1,15 +1,18 @@
-import { PostMetadata, posts } from "@/lib/posts";
 import { Metadata } from "next";
 import Link from "next/link";
 
+import { PostMetadata, posts } from "@/lib/posts";
+
 export const metadata: Metadata = {
   title: "Блог",
+  description:
+    "Это личный блог, где я выражаю исключительно свои мнения и взгляды.",
 };
 
 export default async function Posts() {
   const list = await posts();
   return (
-    <div>
+    <div className="group is-list">
       {list.map((p) => (
         <Post key={p.slug} {...p} />
       ))}

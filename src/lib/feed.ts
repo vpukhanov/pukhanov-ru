@@ -1,34 +1,28 @@
-import { Feed } from "feed";
-import { posts } from "./posts";
+import { async as glob } from "fast-glob";
+
+export type FeedMetadata = {
+  title: string;
+  datePublished: string;
+};
 
 export async function feed() {
-  const f = new Feed({
-    title: "Вячеслав Пуханов",
-    id: "https://pukhanov.ru/posts/feed.xml",
-    favicon: "https://pukhanov.ru/favicon.ico",
-    copyright: "© Вячеслав Пуханов, с 2013 года",
-    feedLinks: {
-      atom: "https://pukhanov.ru/posts/feed.xml",
-    },
-    author: {
-      name: "Вячеслав Пуханов",
-      email: "vyacheslav@pukhanov.ru",
-      link: "https://pukhanov.ru",
-    },
-  });
+  const paths = await glob("src/app/\\(prose\\)/feed/(*)/page.mdx");
 
-  const list = await posts();
+  // src/app/(prose)/feed/<name>/page.mdx -> <name>
+  const slugs = paths.map((path) => path.split("/").at(-2)!);
+  const imports = await Promise.all(
+    slugs.map((slug) => import(`@/app/(prose)/feed/${slug}/page.mdx`)),
+  );
 
-  list.forEach((post) => {
-    f.addItem({
-      title: post.metadata.title,
-      description: post.metadata.description,
-      link: `https://pukhanov.ru/posts/${post.slug}`,
-      date: new Date(post.metadata.datePublished),
-    });
-  });
+  const feed = slugs.map((slug, index) => ({
+    slug,
+    metadata: imports[index].metadata as FeedMetadata,
+  }));
 
-  f.addCategory("technology");
+  // Sort by datePublished, newest to oldest
+  feed.sort(
+    (a, b) => -a.metadata.datePublished.localeCompare(b.metadata.datePublished),
+  );
 
-  return f.atom1();
+  return feed;
 }

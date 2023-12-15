@@ -1,10 +1,13 @@
-export const metadata = {
-    title: 'Open-source React Playground',
-    description: 'Я задеплоил простейший React Playground на react.pukhanov.ru, который удобно использовать для код-ревью, и в целом для того чтобы продемонстрировать что-то на примере, с фокусом на логике.',
-    datePublished: '2022-12-05'
-}
+import DatePublished from "@/components/date-published";
 
-# Open-source React Playground
+export const metadata = {
+  title: "Open-source React Playground",
+  description:
+    "Я задеплоил простейший React Playground на react.pukhanov.ru, который удобно использовать для код-ревью, и в целом для того чтобы продемонстрировать что-то на примере, с фокусом на логике.",
+  datePublished: "2022-12-05",
+};
+
+# {metadata.title}
 
 Я задеплоил простейший React Playground на [react.pukhanov.ru](https://react.pukhanov.ru). Его удобно использовать для код-ревью, и в целом для того чтобы продемонстрировать что-то на примере, с фокусом на логике. Прямого редактора CSS там нет, редактируется JSX.
 
@@ -12,4 +15,4 @@ export const metadata = {
 
 Код, введенный в редактор playground'a, бандлится прямо на клиенте с помощью WASM-сборки SWC, поэтому на сервер ничего не отправляется и нигде не хранится.
 
-<small>Опубликовано <time dateTime="2022-12-05">2022-12-05</time></small>
+<DatePublished dateTime={metadata.datePublished} />
