@@ -1,10 +1,12 @@
-import type { Metadata } from "next";
-import { Mulish } from "next/font/google";
-import "./globals.css";
-import Link from "next/link";
-import Flag from "@/components/flag";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import { Mulish } from "next/font/google";
+import Link from "next/link";
+
+import Flag from "@/components/flag";
+
+import "./globals.css";
 
 const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 

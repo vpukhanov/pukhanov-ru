@@ -1,6 +1,7 @@
-import { PostMetadata, posts } from "@/lib/posts";
 import { Metadata } from "next";
 import Link from "next/link";
+
+import { PostMetadata, posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Блог",

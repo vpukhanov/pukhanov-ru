@@ -1,5 +1,6 @@
-import { posts } from "@/lib/posts";
 import { MetadataRoute } from "next";
+
+import { posts } from "@/lib/posts";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const list = await posts();
