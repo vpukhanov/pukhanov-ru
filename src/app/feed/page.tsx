@@ -1,6 +1,7 @@
 import { Metadata } from "next";
-import { FeedMetadata, feed } from "@/lib/feed";
+
 import FeedNotice from "@/components/feed-notice";
+import { FeedMetadata, feed } from "@/lib/feed";
 
 export const metadata: Metadata = {
   title: "Лента",

@@ -1,6 +1,7 @@
 import { Feed } from "feed";
-import { posts } from "./posts";
+
 import { feed } from "./feed";
+import { posts } from "./posts";
 
 export async function postsAtom() {
   const f = new Feed({
