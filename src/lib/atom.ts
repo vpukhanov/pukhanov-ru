@@ -5,15 +5,15 @@ import { posts } from "./posts";
 
 export async function postsAtom() {
   const f = new Feed({
-    title: "Блог | Вячеслав Пуханов",
+    title: "Vyacheslav Pukhanov's Blog",
     id: "https://pukhanov.ru/posts/feed.xml",
     favicon: "https://pukhanov.ru/favicon.ico",
-    copyright: "© Вячеслав Пуханов, с 2013 года",
+    copyright: "© Vyacheslav Pukhanov, 2013–today",
     feedLinks: {
       atom: "https://pukhanov.ru/posts/feed.xml",
     },
     author: {
-      name: "Вячеслав Пуханов",
+      name: "Vyacheslav Pukhanov",
       email: "vyacheslav@pukhanov.ru",
       link: "https://pukhanov.ru",
     },
@@ -37,15 +37,15 @@ export async function postsAtom() {
 
 export async function feedAtom() {
   const f = new Feed({
-    title: "Лента | Вячеслав Пуханов",
+    title: "Vyacheslav Pukhanov's Feed",
     id: "https://pukhanov.ru/feed/feed.xml",
     favicon: "https://pukhanov.ru/favicon.ico",
-    copyright: "© Вячеслав Пуханов, с 2013 года",
+    copyright: "© Vyacheslav Pukhanov, 2013–today",
     feedLinks: {
       atom: "https://pukhanov.ru/feed/feed.xml",
     },
     author: {
-      name: "Вячеслав Пуханов",
+      name: "Vyacheslav Pukhanov",
       email: "vyacheslav@pukhanov.ru",
       link: "https://pukhanov.ru",
     },

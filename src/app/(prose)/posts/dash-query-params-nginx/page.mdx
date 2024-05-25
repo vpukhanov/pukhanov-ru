@@ -1,34 +1,34 @@
 import DatePublished from "@/components/date-published";
 
 export const metadata = {
-  title: "Чтение query-параметров с дефисами в NGINX конфиге",
+  title: "Reading query-parameters with dashes in NGINX config",
   description:
-    "Для query-параметров в NGINX конфиге автоматически генерируются переменные вида $arg_<имя>. Но если в имени параметра есть дефисы, переменную нужно создать вручную.",
+    "For query-parameters in NGINX config, variables like $arg_<name> are generated automatically. But if there are dashes in the parameter name, the variable must be created manually.",
   datePublished: "2022-07-28",
 };
 
 # {metadata.title}
 
-Для query-параметров в NGINX конфиге автоматически генерируются переменные вида `$arg_<имя>`, которые можно использовать в настройках. Например, чтобы обойти кеш когда в URL есть query-параметр nocache, можно написать такое:
+For query-parameters in NGINX config, variables like `$arg_<name>` are automatically generated, which can be used in the code. For example, to bypass cache when a URL has the query-parameter nocache, you can use this:
 
 ```nginx
 proxy_cache_bypass $arg_nocache;
 proxy_no_cache $arg_nocache;
 ```
 
-Но если в имени параметра есть дефисы, автоматическая переменная для него создана не будет, так как дефис это невалидный символ для идентификаторов в nginx.conf
+But if there are dashes in the parameter name, an automatic variable will not be created for it, because the dash is an invalid character for identifiers in nginx.conf
 
-В таком случае переменную можно создать вручную с помощью блока map:
+In this case, the variable can be created manually using a map block:
 
 ```nginx
 map $args $param_qa_nocache {
-    "~(^|&)qa-nocache=(?<val>[^&]+)"  $val;
+    "~(^|&)qa-nocache=(?<val>[^&]+)" $val;
 }
 ```
 
-Этот блок получает на вход сырую query-строку `$args` и с помощью регулярки достает из нее значение параметра `qa-nocache` с дефисом, которое потом записывается в переменную `$param_qa_nocache`. Если параметр не будет задан в URL, в переменную запишется значение по умолчанию: пустая строка.
+This block takes the raw query string `$args` as input and uses a regular expression to get the value of the `qa-nocache` parameter with a dash from it, which is then stored in the `$param_qa_nocache` variable. If the parameter is not specified in the URL, the variable will be set to the default value: an empty string.
 
-Эту переменную с валидным именем теперь можно использовать в любом месте конфига:
+This variable with a valid name can now be used anywhere in the config:
 
 ```nginx
 proxy_cache_bypass $param_qa_nocache;

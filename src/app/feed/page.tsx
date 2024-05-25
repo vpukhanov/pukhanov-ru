@@ -5,8 +5,9 @@ import FeedNotice from "@/components/feed-notice";
 import { FeedMetadata, feed } from "@/lib/feed";
 
 export const metadata: Metadata = {
-  title: "Лента",
-  description: "В ленте я публикую ссылки на интересный контент других людей.",
+  title: "Feed",
+  description:
+    "In the Feed, I post links to other people's content that I found interesting.",
 };
 
 export default async function Feed() {

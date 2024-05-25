@@ -5,7 +5,7 @@ export default function Flag() {
     <div
       className={styles.flag}
       role="img"
-      title="Символ любви, свободы, равноправия и уважения"
+      title="The symbol of love, freedom, equality and respect"
     />
   );
 }

@@ -9,7 +9,7 @@ export default function NotFound() {
         src={image}
         priority
         width={400}
-        alt="Перекати-поле, олицетворяющее что если по этой ссылке когда-то что-то и было, то теперь этого здесь точно нет"
+        alt="A tumbleweed representing that if there this page has ever existed, it's definitely not here now"
         className="animate-spin-slow"
       />
       <h2 className="text-8xl font-bold tracking-widest" title="404">
