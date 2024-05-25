@@ -4,9 +4,9 @@ import Link from "next/link";
 import { PostMetadata, posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Блог",
+  title: "Blog",
   description:
-    "Это личный блог, где я выражаю исключительно свои мнения и взгляды.",
+    "This is a personal blog where I express my opinions and views exclusively.",
 };
 
 export default async function Posts() {

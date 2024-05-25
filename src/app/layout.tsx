@@ -11,7 +11,7 @@ import "./globals.css";
 const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
-  title: "Вячеслав Пуханов",
+  title: "Vyacheslav Pukhanov",
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <head>
         <link
           rel="alternate"
@@ -35,21 +35,21 @@ export default function RootLayout({
           <header className="mb-12 text-lg tracking-tight">
             <div className="flex items-center justify-between">
               <Link href="/" className="font-bold hover:underline">
-                Вячеслав Пуханов
+                Vyacheslav Pukhanov
               </Link>
               <Flag />
             </div>
             <nav className="space-x-4">
               <Link href="/" className="underline">
-                Обо мне
+                About
               </Link>
               <span>/</span>
               <Link href="/posts" className="underline">
-                Блог
+                Blog
               </Link>
               <span>/</span>
               <Link href="/feed" className="underline">
-                Лента
+                Feed
               </Link>
             </nav>
           </header>
