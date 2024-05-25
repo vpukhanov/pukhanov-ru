@@ -16,7 +16,7 @@ proxy_cache_bypass $arg_nocache;
 proxy_no_cache $arg_nocache;
 ```
 
-But if there are dashes in the parameter name, an automatic variable will not be created for it, because the dash is an invalid character for identifiers in nginx.conf
+But if there are dashes in the parameter name, an automatic variable won't be created because dashes aren't allowed in variable names within the configuration file.
 
 In this case, the variable can be created manually using a map block:
 
