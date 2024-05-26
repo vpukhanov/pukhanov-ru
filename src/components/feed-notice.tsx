@@ -21,8 +21,8 @@ export default function FeedNotice() {
     <div
       className={`relative mx-auto mb-12 max-w-md -rotate-3 rounded-xl bg-amber-100 p-6 text-sky-700 transition-transform hover:rotate-0 ${visibility}`}
     >
-      I share links to other peoples&apos; content in the Feed. You can also add
-      it{" "}
+      I share links to other peoples&apos; content in the Feed. You&nbsp;can
+      also add it{" "}
       <Link href="/feed/feed.xml">
         <span className="underline">to your RSS reader</span>&nbsp;🌐
       </Link>
