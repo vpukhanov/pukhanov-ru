@@ -1,0 +1,60 @@
+.root {
+  position: absolute;
+  display: flex;
+  z-index: -1;
+  transform: rotate(-35deg);
+  top: -90px;
+  filter: hue-rotate(0deg) blur(24px);
+  opacity: 0.3;
+  transition: 4s;
+  animation: rotateHue 10s infinite linear;
+}
+
+.color {
+  height: 150px;
+  width: 26px;
+  transition: 4s;
+}
+
+.color:hover {
+  filter: hue-rotate(-90deg) blur(24px) saturate(3);
+}
+
+.pink {
+  background-color: #fa0bd3;
+}
+
+.red {
+  background-color: #ff0010;
+  margin-top: 12px;
+}
+
+.yellow {
+  background-color: #fff702;
+  margin-top: 18px;
+}
+
+.green {
+  background-color: #22f256;
+  margin-top: 24px;
+}
+
+.blue {
+  background-color: #0093ff;
+  margin-top: 30px;
+}
+
+@keyframes rotateHue {
+  0% {
+    filter: hue-rotate(0deg) blur(24px);
+  }
+
+  50% {
+    filter: hue-rotate(-180deg) blur(24px) saturate(4);
+    transform: rotate(-20deg);
+  }
+
+  100% {
+    filter: hue-rotate(0deg) blur(24px);
+  }
+}
