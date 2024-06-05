@@ -13,6 +13,8 @@ const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
   title: "Vyacheslav Pukhanov",
+  description:
+    "I'm a Lead Frontend Engineer at Tinkoff, where we create the best media about finance, life and human experiences - Tinkoff Journal.",
 };
 
 export default function RootLayout({
