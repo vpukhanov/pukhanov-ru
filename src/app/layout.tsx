@@ -47,10 +47,6 @@ export default function RootLayout({
               <Link href="/posts" className="underline">
                 Blog
               </Link>
-              <span>/</span>
-              <Link href="/feed" className="underline">
-                Feed
-              </Link>
             </nav>
           </header>
           <main>{children}</main>
