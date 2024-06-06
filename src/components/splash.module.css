@@ -5,7 +5,7 @@
   transform: rotate(-35deg);
   top: -90px;
   filter: hue-rotate(0deg) blur(24px);
-  opacity: 0.3;
+  opacity: 0.4;
   transition: 4s;
   animation: rotateHue 10s infinite linear;
 }
