@@ -22,14 +22,17 @@ export default async function Posts() {
 
 function Post({
   slug,
-  metadata: { title, description, datePublished },
+  metadata: { title, emoji, description, datePublished },
 }: {
   slug: string;
   metadata: PostMetadata;
 }) {
   return (
     <Link href={`/posts/${slug}`} className="mb-8 block space-y-1">
-      <div className="text-lg font-semibold underline">{title}</div>
+      <div className="text-lg font-semibold">
+        {emoji ? <span>{emoji} </span> : null}
+        <span className="underline">{title}</span>
+      </div>
       <div>{description}</div>
       <time dateTime={datePublished} className="block text-sm font-light">
         {datePublished}
