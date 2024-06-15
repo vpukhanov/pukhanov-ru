@@ -4,6 +4,7 @@ export type PostMetadata = {
   title: string;
   description: string;
   datePublished: string;
+  emoji?: string;
 };
 
 export async function posts() {
