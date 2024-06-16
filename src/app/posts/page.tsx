@@ -11,13 +11,7 @@ export const metadata: Metadata = {
 
 export default async function Posts() {
   const list = await posts();
-  return (
-    <div className="group is-list">
-      {list.map((p) => (
-        <Post key={p.slug} {...p} />
-      ))}
-    </div>
-  );
+  return list.map((p) => <Post key={p.slug} {...p} />);
 }
 
 function Post({
