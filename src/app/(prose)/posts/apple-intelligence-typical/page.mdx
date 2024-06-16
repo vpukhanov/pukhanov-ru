@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import DatePublished from "@/components/date-published";
+import Figure from "@/components/figure";
 
 import appleIntelligenceImg from "./apple-intelligence.png";
 
@@ -15,21 +14,13 @@ export const metadata = {
 
 Apple is at it again. Just when you thought they couldn't get more Apple-y, they decide that AI doesn't mean Artificial Intelligence anymore: from now on, it's Apple Intelligence. Because of course it is.
 
-<figure>
-  <Image
-    src={appleIntelligenceImg}
-    alt="Craig Federighi standing on stage in a modern, minimalist auditorium, giving a presentation during the keynote of WWDC 2024. Behind him is a large screen displaying the text 'Apple Intelligence' in gradient blue and purple colors."
-  />
-  <figcaption>
-    <span>Source: </span>
-    <a
-      href="https://www.youtube.com/live/RXeOiIDNNek?si=kSi9qkglTrSDuOBy"
-      target="_blank"
-    >
-      <span>Apple at WWDC 2024</span>
-    </a>
-  </figcaption>
-</figure>
+<Figure
+  src={appleIntelligenceImg}
+  alt="Craig Federighi standing on stage in a modern, minimalist auditorium, giving a presentation during the keynote of WWDC 2024. Behind him is a large screen displaying the text 'Apple Intelligence' in gradient blue and purple colors."
+>
+  Source: [Apple at WWDC
+  2024](https://www.youtube.com/live/RXeOiIDNNek?si=kSi9qkglTrSDuOBy)
+</Figure>
 
 They've got a history of doing this. Remember when "Retina" was just an eye thing? Apple turned it into a (damn good) display feature. Now they're doing the same with AI. Typical.
 

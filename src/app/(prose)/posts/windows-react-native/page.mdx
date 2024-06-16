@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import DatePublished from "@/components/date-published";
+import Figure from "@/components/figure";
 
 import desktopUiImg from "./desktop-ui.jpg";
 import reactConfImg from "./react-conf.jpg";
@@ -16,38 +15,22 @@ export const metadata = {
 
 Today I learned that Microsoft incorporates React Native into certain parts of the Windows 11 system UI. They're using it for bits of the Start menu, as shown at ReactConf, and also in sections of the Settings app, as discussed <a href="https://devblogs.microsoft.com/react-native/rnw-settings-win11/" target="_blank">in a Microsoft Devblog.</a>
 
-{/* TODO: this is ugly, make a component for image with caption and source */}
-
-<figure>
-  <Image
-    src={reactConfImg}
-    alt="A presentation slide displayed at ReactConf shows a section of the Windows 11 Start menu, highlighting that parts of the system UI are built using React Native. The slide features the React Native logo and a screenshot of the Start menu with pinned apps and recommended items."
-  />
-  <figcaption>
-    <span>Source: </span>
-    <a href="https://x.com/Zeko369/status/1791141890106290670" target="_blank">
-      <span>Zeko369 on x.com</span>
-    </a>
-  </figcaption>
-</figure>
+<Figure
+  src={reactConfImg}
+  alt="A presentation slide displayed at ReactConf shows a section of the Windows 11 Start menu, highlighting that parts of the system UI are built using React Native. The slide features the React Native logo and a screenshot of the Start menu with pinned apps and recommended items."
+>
+  Source: [Zeko369 on x.com](https://x.com/Zeko369/status/1791141890106290670)
+</Figure>
 
 But here's the thing: why? I've been watching loads of sessions from this year's Microsoft Build, and I've learned that Microsoft is currently backing eight different UI frameworks for Windows, all getting updates. The main ones are .NET MAUI, which handles cross-platform UI, and WinUI 3, designed specifically for Windows. So, it's a bit baffling why they're going with React Native when they have frameworks they've built and optimized themselves for their OS.
 
-<figure>
-  <Image
-    src={desktopUiImg}
-    alt="A comparison chart outlining the features of eight different UI frameworks supported by Microsoft for Windows development, including .NET MAUI, Blazor Hybrid, React Native, UWP XAML, Win32, Windows Forms, WinUI 3, and WPF."
-  />
-  <figcaption>
-    <span>Source: </span>
-    <a
-      href="https://visualstudiomagazine.com/articles/2024/02/13/desktop-dev.aspx"
-      target="_blank"
-    >
-      <span>Visual Studio Magazine</span>
-    </a>
-  </figcaption>
-</figure>
+<Figure
+  src={desktopUiImg}
+  alt="A comparison chart outlining the features of eight different UI frameworks supported by Microsoft for Windows development, including .NET MAUI, Blazor Hybrid, React Native, UWP XAML, Win32, Windows Forms, WinUI 3, and WPF."
+>
+  Source: [Visual Studio
+  Magazine](https://visualstudiomagazine.com/articles/2024/02/13/desktop-dev.aspx)
+</Figure>
 
 The main downside of WinUI seems to be its performance issues, <a href="https://www.windowslatest.com/2021/11/19/microsoft-windows-11-winui-performance-focus/" target="_blank">which Microsoft has acknowledged in the past</a>, and keeps acknowledging still, going as far as <a href="https://youtube.com/clip/Ugkx2EXI90XkSXL34kcYtR6dTtC14bhdLUCV?si=UdQt06udOqPj7Fxl" target="_blank">having their partners recommend older WPF</a> as an alternative for performance-critical applications. But even then, why stick with eight different frameworks when most of them could be swapped out with React Native? It's a bit of a head-scratcher, to be honest.
 

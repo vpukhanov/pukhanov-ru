@@ -1,6 +1,5 @@
-import Image from "next/image";
-
 import DatePublished from "@/components/date-published";
+import Figure from "@/components/figure";
 
 import laserDanceImg from "./laser-dance.png";
 import memento1Img from "./memento-1.png";
@@ -23,33 +22,27 @@ If you know me in real life, you probably already know how much I love Portal 2 
 
 One of the coolest things about Portal games is that they don't end when you finish them. The series has inspired many online communities focused on map-making. For Portal 2, people started publishing custom maps even before the official tools were out, using a modified Hammer editor for the Source Engine. Valve saw this enthusiasm and included a puzzle builder in the game through a free DLC. This DLC allowed players to create, publish, and play custom maps through the Steam Workshop. It also introduced an in-game queue function to load unplayed levels one after another, following the sort order that you specified in the launcher.
 
-<figure>
-  <Image
-    src={memento1Img}
-    alt="A screenshot of the first room from my Portal 2 map, Memento. The room features a laser, various test elements like weighted cubes and buttons, and a fizzler field in the background. The layout is clean and well-lit, with a combination of white and grey tiles that create a modern test chamber aesthetic."
-  />
-  <figcaption>
-    The first room of Memento. I'm really proud of the lighting in this one: the
-    overall tone and highlights are exactly how I wanted them to be.
-  </figcaption>
-</figure>
+<Figure
+  src={memento1Img}
+  alt="A screenshot of the first room from my Portal 2 map, Memento. The room features a laser, various test elements like weighted cubes and buttons, and a fizzler field in the background. The layout is clean and well-lit, with a combination of white and grey tiles that create a modern test chamber aesthetic."
+>
+  The first room of Memento. I'm really proud of the lighting in this one: the
+  overall tone and highlights are exactly how I wanted them to be.
+</Figure>
 
 I jumped right into the in-game editor as soon as it became available. I always wanted to make my own Portal maps, but Hammer was too complex for me since I wasn't familiar with the Source Engine. The in-game editor was perfect — it let me build puzzles from prefab blocks and play through them immediately. I made many levels but published only a few. The Workshop was crowded with simple rooms, "troll levels" like those in Super Mario Maker, and puzzles that were interesting in concept but poorly executed. I really didn't want to add to the pile — it felt quite pointless.
 
 But in 2018, I finally had an idea I was proud of and wanted to build out and publish. The puzzle had two rooms. The first room was a regular puzzle, requiring some thought to solve. The second room had a twist — once you solved its puzzle and opened the exit door, one of the test elements "broke," making the puzzle seem unsolvable. To escape, players needed to realize that an element from the first room could be reused in the second, even though you couldn't bring anything through the "fizzler" — a field that destroys pretty much any object that touches it.
 
-<figure>
-  <Image
-    src={laserDanceImg}
-    alt="A screenshot from my Portal 2 trial map called 'Laser Dance.' This map was a learning project where I experimented with making rooms as compact as possible without compromising functionality. It features a laser, a weighted cube, buttons, and a fizzler field, all within a small, efficiently designed test chamber."
-  />
-  <figcaption>
-    A trial map I built while learning Hammer: [Laser
-    Dance.](https://steamcommunity.com/sharedfiles/filedetails/?id=2487636357)
-    Here I learned how to make rooms as small as possible, but not smaller than
-    that.
-  </figcaption>
-</figure>
+<Figure
+  src={laserDanceImg}
+  alt="A screenshot from my Portal 2 trial map called 'Laser Dance.' This map was a learning project where I experimented with making rooms as compact as possible without compromising functionality. It features a laser, a weighted cube, buttons, and a fizzler field, all within a small, efficiently designed test chamber."
+>
+  A trial map I built while learning Hammer: [Laser
+  Dance.](https://steamcommunity.com/sharedfiles/filedetails/?id=2487636357)
+  Here I learned how to make rooms as small as possible, but not smaller than
+  that.
+</Figure>
 
 I started building the puzzle in the in-game editor but quickly got disappointed. The editor had many limitations:
 
@@ -61,17 +54,14 @@ So, I decided to learn the Portal 2 Authoring Tools, the more advanced Hammer ed
 
 Slowly, the level started taking shape. Everything was coming together as I imagined: the lighting, the chamber layout, the voiceovers, and the ambiance. There were times when I struggled with Hammer. One of the most egregious time wasters was mapping out the space under expanding and retracting stairs. It was a detail no one notices when done right but stands out when done wrong, so I spent 1 or 2 days of work just on this exclusively.
 
-<figure>
-  <Image
-    src={memento2Img}
-    alt="The second room of Memento features the laser emitter that was supposed to 'break' but didn't. Notice how the lighting changes to a warm tone, lulling the player into a false sense of security. The room includes a laser, a button, and clear visual cues that guide the player through the puzzle, creating a deceptively calm atmosphere before the intended twist."
-  />
-  <figcaption>
-    The second room of Memento, featuring the exact laser emitter that was
-    supposed to "break", but didn't. Notice how it switches to warm lighting,
-    lulling the player into a false sense of security.
-  </figcaption>
-</figure>
+<Figure
+  src={memento2Img}
+  alt="The second room of Memento features the laser emitter that was supposed to 'break' but didn't. Notice how the lighting changes to a warm tone, lulling the player into a false sense of security. The room includes a laser, a button, and clear visual cues that guide the player through the puzzle, creating a deceptively calm atmosphere before the intended twist."
+>
+  The second room of Memento, featuring the exact laser emitter that was
+  supposed to "break", but didn't. Notice how it switches to warm lighting,
+  lulling the player into a false sense of security.
+</Figure>
 
 By the end of my summer break, the puzzle was nearly complete, except for the crucial part — breaking the laser emitter in the second room. I had high expectations: I wanted it to break with animations, particle effects, and voiceovers, and for the broken emitter to be replaced by a standard wall piece on a rail. This required mapping some of the environment outside the room, so players wouldn't see a black void. These tasks seemed huge, so I set the project aside, planning to finish it over a few weekends.
 
@@ -79,17 +69,14 @@ Three years later, in 2021, I found the map in a cloud backup. I loaded it up an
 
 Seeing the level with fresh eyes helped me appreciate it as a player, not just the creator. Would it be better if I learned to build large environments and track animations? Definitely. But was it good as it was? _Absolutely._ I published the map on Steam, feeling proud to contribute to the community of my favorite game.
 
-<figure>
-  <Image
-    src={memento3Img}
-    alt="The actual puzzle part of the second room in Memento. When I returned to the level after a long break, I got stuck here for a bit. Interestingly, people commenting on the Steam Workshop found a few ways to skip it completely. The room features a laser, weighted cube, buttons, and intricate mechanics, creating a challenging and engaging puzzle."
-  />
-  <figcaption>
-    The actual puzzle part of the second room. I honestly got stuck here for a
-    bit, when I returned to the level after a long break. Though people
-    commenting on Steam Workshop came up with a few ways to skip it completely.
-  </figcaption>
-</figure>
+<Figure
+  src={memento3Img}
+  alt="The actual puzzle part of the second room in Memento. When I returned to the level after a long break, I got stuck here for a bit. Interestingly, people commenting on the Steam Workshop found a few ways to skip it completely. The room features a laser, weighted cube, buttons, and intricate mechanics, creating a challenging and engaging puzzle."
+>
+  The actual puzzle part of the second room. I honestly got stuck here for a
+  bit, when I returned to the level after a long break. Though people commenting
+  on Steam Workshop came up with a few ways to skip it completely.
+</Figure>
 
 So there it is. Memento is sitting at a 3 out of 5 rating with 39 reviews, which feels fair to me. This whole experience has been a mix of frustration and joy, but totally worth it in the end. Seeing the idea come to life and getting feedback from the community has been awesome. I'd love to go back to it sometime and finish the original vision. The map was released in 2021, and I rediscovered it in 2024. Who knows, maybe 2027 will be the year to look out for!
 
