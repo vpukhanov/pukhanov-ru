@@ -11,7 +11,13 @@ export const metadata: Metadata = {
 
 export default async function Posts() {
   const list = await posts();
-  return list.map((p) => <Post key={p.slug} {...p} />);
+  return (
+    <div>
+      {list.map((p) => (
+        <Post key={p.slug} {...p} />
+      ))}
+    </div>
+  );
 }
 
 function Post({
