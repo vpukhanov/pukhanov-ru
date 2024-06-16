@@ -1,5 +1,5 @@
-import Image, { ImageProps } from "next/image";
-import { ReactNode } from "react";
+import Image, { type ImageProps } from "next/image";
+import type { ReactNode } from "react";
 
 export default function Figure({
   src,
