@@ -4,7 +4,7 @@ import image from "./not-found.webp";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col min-h-[60vh] justify-center items-center gap-4">
+    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4">
       <Image
         src={image}
         priority
