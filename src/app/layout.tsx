@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`bg-white text-slate-900 antialiased ${mulish.className}`}
       >
         <div className="mx-auto max-w-2xl px-4 py-10">
-          <header className="mb-12 text-lg tracking-tight relative">
+          <header className="relative mb-12 text-lg tracking-tight">
             <Splash />
             <div className="flex items-center justify-between">
               <Link href="/" className="font-bold hover:underline">
