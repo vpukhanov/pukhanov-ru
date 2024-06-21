@@ -54,6 +54,18 @@ export default function RootLayout({
             </nav>
           </header>
           <main>{children}</main>
+          <footer className="mt-8 text-center text-xs">
+            <div className="mb-2">
+              &copy; 2018&mdash;{new Date().getFullYear()} Vyacheslav Pukhanov
+            </div>
+            <a
+              href="https://github.com/vpukhanov/pukhanov-ru/"
+              target="_blank"
+              className="text-slate-900 underline"
+            >
+              View Source Code
+            </a>
+          </footer>
         </div>
         <Analytics />
         <SpeedInsights />
