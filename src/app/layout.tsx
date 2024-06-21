@@ -56,7 +56,7 @@ export default function RootLayout({
           <main>{children}</main>
           <footer className="mt-8 text-center text-xs">
             <div className="mb-2">
-              &copy; 2018&mdash;{new Date().getFullYear()} Vyacheslav Pukhanov
+              © 2018–{new Date().getFullYear()} Vyacheslav Pukhanov
             </div>
             <a
               href="https://github.com/vpukhanov/pukhanov-ru/"
