@@ -7,3 +7,7 @@ Currently deployed to [Vercel](https://vercel.com/) with their managed Next.js h
 ## Configuration
 
 This website is configured using build-time environment variables. They are documented in the [.env](.env) file.
+
+## Licensing
+
+Note that the MIT License, located in the root of the repository, applies to the entire repo except for subfolders that have their own license file. In such cases, the license file in the subfolder takes precedence. Notably, the contents of the (prose) folder are covered by an "All Rights Reserved" clause and cannot be used without restriction.

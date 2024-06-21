@@ -1,4 +1,4 @@
-**This license applies to the entire repo except for subfolders that have their own license file.** In such cases, the license file in the subfolder takes precedence. Most notably, contents of the (prose) folder are not licensed, and can not be used without restriction.
+**Note that this license applies to the entire repo except for subfolders that have their own license file.** In such cases, the license file in the subfolder takes precedence. Notably, the contents of the `(prose)` folder are covered by an "All Rights Reserved" clause and cannot be used without restriction.
 
 MIT License
 
