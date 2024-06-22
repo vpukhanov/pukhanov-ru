@@ -68,7 +68,7 @@ async function getLastTrack(): Promise<LastTrack> {
     name: lastTrack.name,
     artist: lastTrack.artist?.["#text"],
     album: lastTrack.album?.["#text"],
-    image: lastTrack.image?.[1]?.["#text"],
+    image: lastTrack.image?.[2]?.["#text"],
     url: lastTrack.url,
     nowPlaying: lastTrack["@attr"]?.nowplaying === "true",
   };
