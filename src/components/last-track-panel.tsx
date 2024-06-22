@@ -28,7 +28,7 @@ export default async function LastTrackPanel() {
         <Image
           src={lastTrack.image}
           alt={lastTrack.album}
-          className="row-span-2 rounded-lg"
+          className="row-span-2 rounded-lg bg-slate-100"
           width={64}
           height={64}
           unoptimized
