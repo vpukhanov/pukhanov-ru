@@ -45,6 +45,7 @@ function Contribution({
 
 const getContributions = cache(async () => {
   const octokit = new Octokit({
+    auth: process.env.GITHUB_PAT,
     userAgent: "pukhanov.ru personal website",
   });
 
