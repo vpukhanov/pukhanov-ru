@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { cache } from "react";
 
 import ContributionIcon from "@/components/contribution-icon";
+import Notice from "@/components/notice";
 
 export const metadata: Metadata = {
   title: "Open-source Contributions by Vyacheslav Pukhanov",
@@ -16,7 +17,17 @@ export const revalidate = 60 * 60 * 24;
 
 export default async function Contributions() {
   const contributions = await getContributions();
-  return contributions.map((c) => <Contribution key={c.id} contribution={c} />);
+  return (
+    <div>
+      <Notice id="contributions">
+        This is a daily updated list of my GitHub contributions, starting all
+        the way back from high school up to now
+      </Notice>
+      {contributions.map((c) => (
+        <Contribution key={c.id} contribution={c} />
+      ))}
+    </div>
+  );
 }
 
 function Contribution({
