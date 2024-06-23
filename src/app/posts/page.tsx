@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PostMetadata, posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Vyacheslav Pukhanov's Blog",
+  title: "Posts by Vyacheslav Pukhanov",
   description:
     "This is a personal blog where I share my thoughts on frontend development, technology, society, and other topics that interest me.",
 };

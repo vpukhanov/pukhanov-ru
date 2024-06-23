@@ -4,7 +4,7 @@ import { posts } from "./posts";
 
 export async function postsAtom() {
   const f = new Feed({
-    title: "Vyacheslav Pukhanov's Blog",
+    title: "Posts by Vyacheslav Pukhanov",
     id: "https://pukhanov.ru/posts/feed.xml",
     favicon: "https://pukhanov.ru/favicon.ico",
     copyright: "© Vyacheslav Pukhanov, 2013–today",
