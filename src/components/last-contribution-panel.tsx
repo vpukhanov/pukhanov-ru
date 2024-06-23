@@ -20,7 +20,7 @@ export default async function LastContributionPanel() {
     <a
       href={lastContribution.html_url}
       target="_blank"
-      className="w-full flex-1 rounded-lg border border-gray-200 bg-gray-100 p-4"
+      className="w-full flex-1 rounded-lg border border-gray-200 bg-gray-100 p-4 transition-colors hover:border-gray-300 hover:bg-gray-200"
     >
       <div className="col-span-2 mb-2 text-xl font-extrabold">
         Last Contribution{" "}
