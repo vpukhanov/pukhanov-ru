@@ -9,7 +9,7 @@ import Notice from "@/components/notice";
 export const metadata: Metadata = {
   title: "Open-source Contributions by Vyacheslav Pukhanov",
   description:
-    "These are my public contributions to open-source projects, pulled in real time from GitHub.",
+    "This is a daily updated list of my open-source contributions, starting all the way back from high school up to now, pulled directly from GitHub.",
 };
 
 export default async function Contributions() {
