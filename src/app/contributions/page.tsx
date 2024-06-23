@@ -6,7 +6,7 @@ import { cache } from "react";
 import ContributionIcon from "@/components/contribution-icon";
 
 export const metadata: Metadata = {
-  title: "Vyacheslav Pukhanov's Open-source Contributions",
+  title: "Open-source Contributions by Vyacheslav Pukhanov",
   description:
     "These are my public contributions to open-source projects, pulled in real time from GitHub.",
 };
