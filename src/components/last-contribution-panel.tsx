@@ -1,6 +1,6 @@
 import type { components as OctokitComponents } from "@octokit/openapi-types";
 import { Octokit } from "@octokit/rest";
-import { cache } from "react";
+import { unstable_cache } from "next/cache";
 
 import ContributionIcon from "./contribution-icon";
 
@@ -35,21 +35,28 @@ export default async function LastContributionPanel() {
   );
 }
 
-const getLastContribution = cache(async () => {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_PAT,
-    userAgent: "pukhanov.ru personal website",
-  });
+// We have to use unstable_cache since we aren't calling fetch directly
+// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
+const getLastContribution = unstable_cache(
+  async () => {
+    const octokit = new Octokit({
+      auth: process.env.GITHUB_PAT,
+      userAgent: "pukhanov.ru personal website",
+    });
 
-  const contributions = await octokit.search.issuesAndPullRequests({
-    q: [
-      "author:vpukhanov", // issues and PRs created by me...
-      "is:public", // against public repos...
-      "-user:vpukhanov", // but not in my own repos
-    ].join("+"),
-    sort: "created",
-    per_page: 1,
-  });
+    const contributions = await octokit.search.issuesAndPullRequests({
+      q: [
+        "author:vpukhanov", // issues and PRs created by me...
+        "is:public", // against public repos...
+        "-user:vpukhanov", // but not in my own repos
+      ].join("+"),
+      sort: "created",
+      per_page: 1,
+    });
 
-  return contributions.data.items[0];
-});
+    return contributions.data.items[0];
+  },
+  ["getLastContribution"],
+  // Revalidate cache once an hour
+  { revalidate: 60 * 60 },
+);

@@ -1,7 +1,7 @@
 import type { components as OctokitComponents } from "@octokit/openapi-types";
 import { Octokit } from "@octokit/rest";
 import { Metadata } from "next";
-import { cache } from "react";
+import { unstable_cache } from "next/cache";
 
 import ContributionIcon from "@/components/contribution-icon";
 import Notice from "@/components/notice";
@@ -11,9 +11,6 @@ export const metadata: Metadata = {
   description:
     "These are my public contributions to open-source projects, pulled in real time from GitHub.",
 };
-
-// Revalidate the cached version of the page at most once every day (in minutes)
-export const revalidate = 60 * 60 * 24;
 
 export default async function Contributions() {
   const contributions = await getContributions();
@@ -54,23 +51,30 @@ function Contribution({
   );
 }
 
-const getContributions = cache(async () => {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_PAT,
-    userAgent: "pukhanov.ru personal website",
-  });
+// We have to use unstable_cache since we aren't calling fetch directly
+// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
+const getContributions = unstable_cache(
+  async () => {
+    const octokit = new Octokit({
+      auth: process.env.GITHUB_PAT,
+      userAgent: "pukhanov.ru personal website",
+    });
 
-  const response = await octokit.paginate(
-    octokit.rest.search.issuesAndPullRequests,
-    {
-      q: [
-        "author:vpukhanov", // issues and PRs created by me...
-        "is:public", // against public repos...
-        "-user:vpukhanov", // but not in my own repos
-      ].join("+"),
-      sort: "created",
-    },
-  );
+    const response = await octokit.paginate(
+      octokit.rest.search.issuesAndPullRequests,
+      {
+        q: [
+          "author:vpukhanov", // issues and PRs created by me...
+          "is:public", // against public repos...
+          "-user:vpukhanov", // but not in my own repos
+        ].join("+"),
+        sort: "created",
+      },
+    );
 
-  return response;
-});
+    return response;
+  },
+  ["getContributions"],
+  // Revalidate the cache once in 12 hours
+  { revalidate: 60 * 60 * 12 },
+);
