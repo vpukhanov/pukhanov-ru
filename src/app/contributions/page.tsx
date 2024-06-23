@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     "These are my public contributions to open-source projects, pulled in real time from GitHub.",
 };
 
-// Revalidate the cached version of the page at most once every hour
-export const revalidate = 3600;
+// Revalidate the cached version of the page at most once every day (in minutes)
+export const revalidate = 60 * 60 * 24;
 
 export default async function Contributions() {
   const contributions = await getContributions();
@@ -51,7 +51,11 @@ const getContributions = cache(async () => {
   const response = await octokit.paginate(
     octokit.rest.search.issuesAndPullRequests,
     {
-      q: "author:vpukhanov+-user:vpukhanov",
+      q: [
+        "author:vpukhanov", // issues and PRs created by me...
+        "is:public", // against public repos...
+        "-user:vpukhanov", // but not in my own repos
+      ].join("+"),
       sort: "created",
     },
   );
