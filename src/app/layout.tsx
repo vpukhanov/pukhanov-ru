@@ -51,6 +51,10 @@ export default function RootLayout({
               <Link href="/posts" className="underline">
                 Blog
               </Link>
+              <span>/</span>
+              <Link href="/contributions" className="underline">
+                Contributions
+              </Link>
             </nav>
           </header>
           <main>{children}</main>
