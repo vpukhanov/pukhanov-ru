@@ -59,8 +59,7 @@ async function getLastTrack(): Promise<LastTrack> {
     "format=json",
   ].join("&");
 
-  // Cache lifetime of 60 seconds
-  const result = await fetch(url, { next: { revalidate: 60 } });
+  const result = await fetch(url);
   const json = await result.json();
   const lastTrack = json.recenttracks.track[0];
 
