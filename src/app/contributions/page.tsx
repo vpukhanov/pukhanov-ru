@@ -1,8 +1,6 @@
-import type { components as OctokitComponents } from "@octokit/openapi-types";
-import { Octokit } from "@octokit/rest";
 import { Metadata } from "next";
 
-import ContributionIcon from "@/components/contribution-icon";
+import ContributionIcon, { Contribution } from "@/components/contribution-icon";
 import Notice from "@/components/notice";
 
 export const metadata: Metadata = {
@@ -10,9 +8,6 @@ export const metadata: Metadata = {
   description:
     "This is a daily updated list of my open-source contributions, starting all the way back from high school up to now, pulled directly from GitHub.",
 };
-
-// Revalidate the cache once an hour
-export const revalidate = 3600;
 
 export default async function Contributions() {
   const contributions = await getContributions();
@@ -23,17 +18,13 @@ export default async function Contributions() {
         the way back from high school up to now
       </Notice>
       {contributions.map((c) => (
-        <Contribution key={c.id} contribution={c} />
+        <ContributionRow key={c.id} contribution={c} />
       ))}
     </div>
   );
 }
 
-function Contribution({
-  contribution,
-}: {
-  contribution: OctokitComponents["schemas"]["issue-search-result-item"];
-}) {
+function ContributionRow({ contribution }: { contribution: Contribution }) {
   const repo = contribution.repository_url.split("/").slice(-2).join("/");
   return (
     <a href={contribution.html_url} target="_blank" className="mb-2 flex gap-4">
@@ -53,23 +44,27 @@ function Contribution({
   );
 }
 
-async function getContributions() {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_PAT,
-    userAgent: "pukhanov.ru personal website",
+async function getContributions(): Promise<Contribution[]> {
+  // TODO: will have to use pagination when there are over a 100 contributions
+  const query = new URLSearchParams({
+    q: "is:public author:vpukhanov -user:vpukhanov",
+    sort: "created",
+    per_page: "100",
   });
 
-  const response = await octokit.paginate(
-    octokit.rest.search.issuesAndPullRequests,
-    {
-      q: [
-        "author:vpukhanov", // issues and PRs created by me...
-        "is:public", // against public repos...
-        "-user:vpukhanov", // but not in my own repos
-      ].join("+"),
-      sort: "created",
-    },
-  );
+  const headers = {
+    Accept: "application/vnd.github+json",
+    Authorization: `Bearer ${process.env.GITHUB_PAT}`,
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "pukhanov.ru",
+  };
 
-  return response;
+  const response = await fetch(
+    `https://api.github.com/search/issues?${query}`,
+    // Revalidate cache at most once an hour
+    { headers, next: { revalidate: 3600 } },
+  );
+  const result = await response.json();
+
+  return result.items;
 }

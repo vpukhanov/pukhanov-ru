@@ -59,7 +59,8 @@ async function getLastTrack(): Promise<LastTrack> {
     "format=json",
   ].join("&");
 
-  const result = await fetch(url);
+  // Revalidate cache at most once every minute
+  const result = await fetch(url, { next: { revalidate: 60 } });
   const json = await result.json();
   const lastTrack = json.recenttracks.track[0];
 
