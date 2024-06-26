@@ -1,11 +1,7 @@
-import type { components as OctokitComponents } from "@octokit/openapi-types";
-import { Octokit } from "@octokit/rest";
-import { unstable_cache } from "next/cache";
-
-import ContributionIcon from "./contribution-icon";
+import ContributionIcon, { Contribution } from "./contribution-icon";
 
 export default async function LastContributionPanel() {
-  let lastContribution: OctokitComponents["schemas"]["issue-search-result-item"];
+  let lastContribution: Contribution;
   try {
     lastContribution = await getLastContribution();
   } catch (e) {
@@ -35,28 +31,26 @@ export default async function LastContributionPanel() {
   );
 }
 
-// We have to use unstable_cache since we aren't calling fetch directly
-// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
-const getLastContribution = unstable_cache(
-  async () => {
-    const octokit = new Octokit({
-      auth: process.env.GITHUB_PAT,
-      userAgent: "pukhanov.ru personal website",
-    });
+async function getLastContribution(): Promise<Contribution> {
+  const query = new URLSearchParams({
+    q: "is:public author:vpukhanov -user:vpukhanov",
+    sort: "created",
+    per_page: "1",
+  });
 
-    const contributions = await octokit.search.issuesAndPullRequests({
-      q: [
-        "author:vpukhanov", // issues and PRs created by me...
-        "is:public", // against public repos...
-        "-user:vpukhanov", // but not in my own repos
-      ].join("+"),
-      sort: "created",
-      per_page: 1,
-    });
+  const headers = {
+    Accept: "application/vnd.github+json",
+    Authorization: `Bearer ${process.env.GITHUB_PAT}`,
+    "X-GitHub-Api-Version": "2022-11-28",
+    "User-Agent": "pukhanov.ru",
+  };
 
-    return contributions.data.items[0];
-  },
-  ["getLastContribution"],
-  // Revalidate cache once an hour
-  { revalidate: 60 * 60 },
-);
+  const response = await fetch(
+    `https://api.github.com/search/issues?${query}`,
+    // Revalidate cache at most once an hour
+    { headers, next: { revalidate: 3600 } },
+  );
+  const result = await response.json();
+
+  return result.items[0];
+}
