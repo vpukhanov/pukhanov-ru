@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
 
-import Notice from "@/components/notice";
 import { PostMetadata, posts } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -14,13 +13,6 @@ export default async function Posts() {
   const list = await posts();
   return (
     <div>
-      <Notice id="contributions">
-        I am now experimenting with ultra-short, byte-sized format content{" "}
-        <a href="https://t.me/byteblurbs" target="_blank" className="underline">
-          on&nbsp;Byte&nbsp;Blurbs
-        </a>{" "}
-        on&nbsp;Telegram
-      </Notice>
       {list.map((p) => (
         <Post key={p.slug} {...p} />
       ))}
