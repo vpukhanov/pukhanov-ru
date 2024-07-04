@@ -1,15 +1,25 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Mulish } from "next/font/google";
+import { Inter, Libre_Baskerville } from "next/font/google";
 import Link from "next/link";
 
-import Flag from "@/components/flag";
 import Splash from "@/components/splash";
 
 import "./globals.css";
 
-const mulish = Mulish({ subsets: ["latin", "cyrillic"] });
+// Sans for headings and UI
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+// Serif for prose
+const libreBaskerville = Libre_Baskerville({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-libre-baskerville",
+});
 
 export const metadata: Metadata = {
   title: "Vyacheslav Pukhanov",
@@ -32,26 +42,23 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`bg-white text-slate-900 antialiased ${mulish.className}`}
+        className={`bg-white text-slate-900 antialiased ${inter.variable} ${libreBaskerville.variable} font-sans`}
       >
         <div className="mx-auto max-w-2xl px-4 py-10">
           <header className="relative mb-12 text-lg tracking-tight">
             <Splash />
-            <div className="flex items-center justify-between">
-              <Link href="/" className="font-bold hover:underline">
-                Vyacheslav Pukhanov
-              </Link>
-              <Flag />
-            </div>
-            <nav className="space-x-4">
+            <Link href="/" className="font-bold hover:underline">
+              Vyacheslav Pukhanov
+            </Link>
+            <nav className="space-x-2">
               <Link href="/" className="underline">
                 About
               </Link>
-              <span>/</span>
+              <span>•</span>
               <Link href="/posts" className="underline">
                 Blog
               </Link>
-              <span>/</span>
+              <span>•</span>
               <Link href="/contributions" className="underline">
                 Contributions
               </Link>
@@ -59,7 +66,7 @@ export default function RootLayout({
           </header>
           <main>{children}</main>
           <footer className="mt-8 text-center text-xs">
-            <div className="mb-2">
+            <div className="mb-1">
               © 2018–{new Date().getFullYear()} Vyacheslav Pukhanov
             </div>
             <a

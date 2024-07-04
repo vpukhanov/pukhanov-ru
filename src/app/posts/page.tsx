@@ -30,11 +30,11 @@ function Post({
   return (
     <Link href={`/posts/${slug}`} className="mb-8 block space-y-1">
       <div className="text-lg font-semibold">
-        {emoji ? <span>{emoji} </span> : null}
         <span className="underline">{title}</span>
+        {emoji ? <span> {emoji}</span> : null}
       </div>
       <div>{description}</div>
-      <time dateTime={datePublished} className="block text-sm font-light">
+      <time dateTime={datePublished} className="block text-sm">
         {datePublished}
       </time>
     </Link>

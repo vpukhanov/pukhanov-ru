@@ -22,7 +22,8 @@ export default async function LastTrackPanel() {
       className="grid w-full flex-1 grid-cols-[auto_minmax(0,_1fr)] grid-rows-[auto_auto_auto] rounded-lg border border-blue-700 bg-blue-600 p-4 text-white transition-colors hover:border-blue-500 hover:bg-blue-400"
     >
       <div className="col-span-2 mb-2 text-xl font-extrabold">
-        Last Track {lastTrack.nowPlaying ? "▶️" : "⏸️"}
+        Last Track
+        <span className="ml-2">{lastTrack.nowPlaying ? "▶️" : "⏸️"}</span>
       </div>
       {lastTrack.image && (
         <Image
