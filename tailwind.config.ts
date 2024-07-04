@@ -6,6 +6,24 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      serif: [
+        "var(--font-libre-baskerville)",
+        "Charter",
+        "Georgia",
+        "Times New Roman",
+        "Times",
+        "serif",
+      ],
+      sans: [
+        "var(--font-inter)",
+        "Helvetica Neue",
+        "Helvetica",
+        "Arial",
+        "Noto Sans",
+        "sans-serif",
+      ],
+    },
     extend: {
       animation: {
         "spin-slow": "spin 3s linear infinite",

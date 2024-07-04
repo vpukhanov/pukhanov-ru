@@ -13,7 +13,7 @@ export default function Figure({
   return (
     <figure>
       <Image src={src} alt={alt} />
-      {children && <figcaption>{children}</figcaption>}
+      {children && <figcaption className="font-sans">{children}</figcaption>}
     </figure>
   );
 }

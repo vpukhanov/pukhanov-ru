@@ -30,14 +30,14 @@ function ContributionRow({ contribution }: { contribution: Contribution }) {
     <a href={contribution.html_url} target="_blank" className="mb-2 flex gap-4">
       <ContributionIcon
         contribution={contribution}
-        className="mt-0.5 h-5 w-5 shrink-0"
+        className="mt-1 h-4 w-4 shrink-0"
       />
       <div>
         <div className="font-semibold underline">{contribution.title}</div>
-        <div className="text-light text-sm">{repo}</div>
+        <div className="text-sm">{repo}</div>
       </div>
       <div className="flex-1" />
-      <div className="text-light mt-1 shrink-0 text-sm">
+      <div className="mt-1 shrink-0 text-sm">
         {contribution.created_at.split("T")[0]}
       </div>
     </a>
