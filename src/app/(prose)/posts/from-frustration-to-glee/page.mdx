@@ -1,0 +1,34 @@
+import DatePublished from "@/components/date-published";
+
+export const metadata = {
+  title: "From Frustration to Glee",
+  description:
+    "An artisan handmade organic tool for managing Git’s exclude file locally and keeping your repos tidy, or how I stopped worrying and achieved 'glee'.",
+  datePublished: "2024-07-05",
+};
+
+# {metadata.title}
+
+At work, I often find myself juggling multiple projects and needing a reliable way to track my progress. I often add a `TODO.md` file to the root of the repository to track my current task, write down reminders, or note some tech debt that I plan to address later.
+
+I want this file to stay in the root of the repository for easy access, but I don't want to accidentally commit it to Git. I also don't want to include it in the `.gitignore` file, since that file is shared with the whole team, and my personal workflow shouldn’t be their concern.
+
+At some point in the long-gone past, I learned [about the `.git/info/exclude` file](https://git-scm.com/docs/gitignore) — a personal `.gitignore` that isn’t shared and stays on my local machine. So I could list my `TODO.md` file there and be certain that I won't accidentally include it in some commit later down the line.
+
+Another cool way to use that exlude file is to keep temporary or configuration files out of your Git commits. For instance, if you're running scripts that generate logs or you have specific IDE settings files (like `.vscode` or `.idea`), you can add these to the exclude file. This way, you avoid cluttering your commits with local dev environment details that the rest of the team doesn’t need to see. It’s a neat trick to keep your repo clean and focused on the code itself, making your work process smoother and more efficient.
+
+The only downside to `.git/info/exclude` was it’s not very visible and kind of a pain to edit. I wanted a simpler way to manage this file.
+
+So, I decided to create a command-line interface for it, making it easier to discover and edit. That's how `glee` was born — a command-line tool that makes managing the `.git/info/exclude` file really easy. It lets you add, remove, and list entries in that file without manually editing it.
+
+To get `glee`, you can quickly install it via Homebrew or Go, and there are more detailed instructions available [on the GitHub repository](https://github.com/vpukhanov/glee). It is built and tested for macOS, Linux and Windows.
+
+```sh
+brew install vpukhanov/tools/glee
+# or
+go install github.com/vpukhanov/glee@latest
+```
+
+Check out the full installation guide for more options. I hope you find `glee` as handy as I do for keeping your projects clean and organized.
+
+<DatePublished dateTime={metadata.datePublished} />
