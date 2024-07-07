@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import Link from "next/link";
 
+import GithubIcon from "@/components/icons/github";
+import TelegramIcon from "@/components/icons/telegram";
 import Splash from "@/components/splash";
 
 import "./globals.css";
@@ -47,9 +49,23 @@ export default function RootLayout({
         <div className="mx-auto max-w-2xl px-4 py-10">
           <header className="relative mb-12 text-lg tracking-tight">
             <Splash />
-            <Link href="/" className="font-bold hover:underline">
-              Vyacheslav Pukhanov
-            </Link>
+            <div className="flex items-center justify-between gap-2">
+              <Link href="/" className="font-bold hover:underline">
+                Vyacheslav Pukhanov
+              </Link>
+              <div className="flex items-center gap-2" title="GitHub">
+                <a href="https://github.com/vpukhanov" target="_blank">
+                  <GithubIcon />
+                </a>
+                <a
+                  href="https://t.me/vpukhanov"
+                  target="_blank"
+                  title="Telegram"
+                >
+                  <TelegramIcon />
+                </a>
+              </div>
+            </div>
             <nav className="space-x-2">
               <Link href="/" className="underline">
                 About
