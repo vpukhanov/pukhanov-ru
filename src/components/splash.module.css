@@ -1,10 +1,11 @@
 .root {
+  --blur-size: 24px;
   position: absolute;
   display: flex;
   z-index: -1;
   transform: rotate(-35deg);
-  top: -90px;
-  filter: hue-rotate(0deg) blur(24px);
+  top: -50px;
+  filter: hue-rotate(0deg) blur(var(--blur-size));
   opacity: 0.4;
   transition: 4s;
   animation: rotateHue 10s infinite linear;
@@ -12,12 +13,8 @@
 
 .color {
   height: 150px;
-  width: 26px;
+  width: 35px;
   transition: 4s;
-}
-
-.color:hover {
-  filter: hue-rotate(-90deg) blur(24px) saturate(3);
 }
 
 .pink {
@@ -46,15 +43,15 @@
 
 @keyframes rotateHue {
   0% {
-    filter: hue-rotate(0deg) blur(24px);
+    filter: hue-rotate(0deg) blur(var(--blur-size));
   }
 
   50% {
-    filter: hue-rotate(-180deg) blur(24px) saturate(4);
+    filter: hue-rotate(-180deg) blur(var(--blur-size)) saturate(4);
     transform: rotate(-20deg);
   }
 
   100% {
-    filter: hue-rotate(0deg) blur(24px);
+    filter: hue-rotate(0deg) blur(var(--blur-size));
   }
 }
