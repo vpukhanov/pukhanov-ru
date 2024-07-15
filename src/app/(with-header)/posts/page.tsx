@@ -35,7 +35,10 @@ function Post({
         {emoji ? <span> {emoji}</span> : null}
       </div>
       <div>{description}</div>
-      <time dateTime={datePublished} className="block">
+      <time
+        dateTime={datePublished}
+        className="block tabular-nums tracking-tight"
+      >
         {datePublished}
       </time>
     </Link>

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
+import Navigation from "@/components/navigation";
+
 export default function LayoutWithHeader({
   children,
 }: {
@@ -12,19 +14,7 @@ export default function LayoutWithHeader({
         <Link href="/" className="font-bold hover:underline">
           Vyacheslav Pukhanov
         </Link>
-        <nav className="flex gap-1">
-          <Link href="/cv" className="underline">
-            CV
-          </Link>
-          <span>•</span>
-          <Link href="/posts" className="underline">
-            Posts
-          </Link>
-          <span>•</span>
-          <Link href="/contributions" className="underline">
-            Contributions
-          </Link>
-        </nav>
+        <Navigation />
       </header>
       <main className="flex flex-1">{children}</main>
     </>
