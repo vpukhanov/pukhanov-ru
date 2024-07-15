@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter, Libre_Baskerville } from "next/font/google";
+import { Inter } from "next/font/google";
 import { ReactNode } from "react";
 
 import "./globals.css";
@@ -10,13 +10,6 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-});
-
-// Serif for prose
-const libreBaskerville = Libre_Baskerville({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-  variable: "--font-libre-baskerville",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body
-        className={`bg-white font-sans text-black antialiased ${inter.variable} ${libreBaskerville.variable}`}
+        className={`bg-white font-sans text-gray-950 antialiased dark:bg-black dark:text-gray-50 ${inter.variable}`}
       >
         <div className="mx-auto flex min-h-dvh max-w-2xl flex-col px-4 py-10">
           {children}
