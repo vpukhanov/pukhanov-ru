@@ -6,11 +6,11 @@ export default function Navigation({ className = "" }: { className?: string }) {
       <Link href="/cv" className="underline">
         CV
       </Link>
-      <span>•</span>
+      <span className="text-gray-300 dark:text-gray-600">•</span>
       <Link href="/posts" className="underline">
         Posts
       </Link>
-      <span>•</span>
+      <span className="text-gray-300 dark:text-gray-600">•</span>
       <Link href="/contributions" className="underline">
         Contributions
       </Link>

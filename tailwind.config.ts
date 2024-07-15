@@ -7,14 +7,7 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      serif: [
-        "var(--font-libre-baskerville)",
-        "Charter",
-        "Georgia",
-        "Times New Roman",
-        "Times",
-        "serif",
-      ],
+      serif: ["Charter", "Georgia", "Times New Roman", "Times", "serif"],
       sans: [
         "var(--font-inter)",
         "Helvetica Neue",

@@ -3,5 +3,9 @@ export default function PostLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <article className="prose text-black">{children}</article>;
+  return (
+    <article className="prose text-gray-950 dark:prose-invert dark:text-gray-50">
+      {children}
+    </article>
+  );
 }

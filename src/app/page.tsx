@@ -15,6 +15,7 @@ export default function IntroPage() {
         <Navigation className="mb-2 sm:mb-6" />
         <Link
           href="mailto:vyacheslav@pukhanov.ru"
+          target="_blank"
           className="flex items-center gap-2"
         >
           <AtIcon className="mt-1 h-6 w-6 sm:mt-2 sm:h-8 sm:w-8" />
