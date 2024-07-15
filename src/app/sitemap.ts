@@ -7,7 +7,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://pukhanov.ru",
+      url: "https://pukhanov.ru/",
+    },
+    {
+      url: "https://pukhanov.ru/cv",
       priority: 1,
     },
     {

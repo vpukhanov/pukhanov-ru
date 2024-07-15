@@ -1,22 +1,18 @@
 import { Metadata } from "next";
 
 import ContributionIcon, { Contribution } from "@/components/contribution-icon";
-import Notice from "@/components/notice";
 
 export const metadata: Metadata = {
-  title: "Open-source Contributions by Vyacheslav Pukhanov",
+  title: "Open-source Contributions | Vyacheslav Pukhanov",
   description:
-    "This is a daily updated list of my open-source contributions, starting all the way back from high school up to now, pulled directly from GitHub.",
+    "A daily updated list of my open-source contributions, starting all the way back from high school up to now, pulled directly from GitHub.",
 };
 
 export default async function Contributions() {
   const contributions = await getContributions();
   return (
     <div>
-      <Notice id="contributions">
-        This is a daily updated list of my GitHub contributions, starting all
-        the way back from high school up to now
-      </Notice>
+      <h1 className="mb-8 text-4xl font-extrabold">Contributions</h1>
       {contributions.map((c) => (
         <ContributionRow key={c.id} contribution={c} />
       ))}
@@ -27,17 +23,18 @@ export default async function Contributions() {
 function ContributionRow({ contribution }: { contribution: Contribution }) {
   const repo = contribution.repository_url.split("/").slice(-2).join("/");
   return (
-    <a href={contribution.html_url} target="_blank" className="mb-2 flex gap-4">
+    <a href={contribution.html_url} target="_blank" className="mb-4 flex gap-4">
       <ContributionIcon
         contribution={contribution}
-        className="mt-1 h-4 w-4 shrink-0"
+        className="mt-1 h-5 w-5 shrink-0"
       />
-      <div>
-        <div className="font-semibold underline">{contribution.title}</div>
-        <div className="text-sm">{repo}</div>
+      <div className="flex-1">
+        <div className="text-lg font-semibold underline">
+          {contribution.title}
+        </div>
+        <div>{repo}</div>
       </div>
-      <div className="flex-1" />
-      <div className="mt-1 shrink-0 text-sm">
+      <div className="mt-0.5 shrink-0 text-lg tabular-nums tracking-tight">
         {contribution.created_at.split("T")[0]}
       </div>
     </a>
