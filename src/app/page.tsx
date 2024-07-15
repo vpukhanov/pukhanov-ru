@@ -10,7 +10,7 @@ export default function IntroPage() {
         <h1 className="mb-2 text-4xl font-bold sm:mb-6 sm:text-6xl">
           Hi! My name
           <br />
-          is Vyacheslav 👋🏻
+          is Vyacheslav <span className="wave">👋🏻</span>
         </h1>
         <Navigation className="mb-2 sm:mb-6" />
         <Link
