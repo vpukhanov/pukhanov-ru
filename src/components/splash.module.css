@@ -1,57 +1,53 @@
 .root {
-  --blur-size: 24px;
   position: absolute;
-  display: flex;
+  width: 250px;
+  height: 200px;
+  top: -120px;
+  left: -20px;
   z-index: -1;
-  transform: rotate(-35deg);
-  top: -50px;
-  filter: hue-rotate(0deg) blur(var(--blur-size));
-  opacity: 0.4;
-  transition: 4s;
-  animation: rotateHue 10s infinite linear;
+  display: flex;
+  transform: rotate(-30deg);
+  filter: blur(30px);
+  opacity: 0.7;
+  overflow: hidden;
 }
 
-.color {
-  height: 150px;
-  width: 35px;
-  transition: 4s;
-}
-
-.pink {
-  background-color: #fa0bd3;
+.stripe {
+  flex: 1;
+  margin: 0 2px;
+  animation: stripeMovement 10s ease-in-out infinite alternate;
 }
 
 .red {
-  background-color: #ff0010;
-  margin-top: 12px;
+  background-color: rgba(255, 92, 92, 0.7);
+}
+
+.orange {
+  background-color: rgba(255, 154, 77, 0.7);
 }
 
 .yellow {
-  background-color: #fff702;
-  margin-top: 18px;
+  background-color: rgba(255, 231, 76, 0.7);
 }
 
 .green {
-  background-color: #22f256;
-  margin-top: 24px;
+  background-color: rgba(103, 224, 163, 0.7);
 }
 
 .blue {
-  background-color: #0093ff;
-  margin-top: 30px;
+  background-color: rgba(77, 180, 255, 0.7);
 }
 
-@keyframes rotateHue {
-  0% {
-    filter: hue-rotate(0deg) blur(var(--blur-size));
-  }
+.purple {
+  background-color: rgba(171, 124, 255, 0.7);
+}
 
-  50% {
-    filter: hue-rotate(-180deg) blur(var(--blur-size)) saturate(4);
-    transform: rotate(-20deg);
-  }
-
+@keyframes stripeMovement {
+  0%,
   100% {
-    filter: hue-rotate(0deg) blur(var(--blur-size));
+    transform: scaleY(1) translateY(0);
+  }
+  50% {
+    transform: scaleY(1.1) translateY(-10px);
   }
 }
