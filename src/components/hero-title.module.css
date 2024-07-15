@@ -20,7 +20,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: rainbow-move 8s linear infinite;
+  animation: rainbow-move 10s linear infinite;
   padding-bottom: 0.1em;
 }
 
@@ -57,5 +57,15 @@
   }
   100% {
     background-position: 200% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave {
+    animation: none;
+  }
+
+  .rainbow {
+    animation-duration: 30s;
   }
 }

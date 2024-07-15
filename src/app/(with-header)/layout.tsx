@@ -11,7 +11,7 @@ export default function LayoutWithHeader({
 }) {
   return (
     <>
-      <header className="mb-10 text-lg">
+      <header className="relative mb-10 text-lg">
         <Splash />
         <Link href="/" className="font-bold hover:underline">
           Vyacheslav Pukhanov
