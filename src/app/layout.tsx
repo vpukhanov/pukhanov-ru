@@ -1,16 +1,11 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { ReactNode } from "react";
 
-import "./globals.css";
+import { charter, inter } from "@/components/fonts";
 
-// Sans for headings and UI
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Vyacheslav Pukhanov",
@@ -29,7 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body
-        className={`bg-white font-sans text-gray-950 antialiased dark:bg-black dark:text-gray-50 ${inter.variable}`}
+        className={`bg-white font-sans text-gray-950 antialiased dark:bg-black dark:text-gray-50 ${inter.variable} ${charter.variable}`}
       >
         <div className="mx-auto flex min-h-dvh max-w-2xl flex-col px-4 py-10">
           {children}

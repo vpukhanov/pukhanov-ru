@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
@@ -7,14 +8,18 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      serif: ["Charter", "Georgia", "Times New Roman", "Times", "serif"],
+      serif: [
+        "var(--font-charter)",
+        "Charter",
+        ...defaultTheme.fontFamily.serif,
+      ],
       sans: [
         "var(--font-inter)",
+        "Inter",
         "Helvetica Neue",
         "Helvetica",
         "Arial",
-        "Noto Sans",
-        "sans-serif",
+        ...defaultTheme.fontFamily.sans,
       ],
     },
     extend: {

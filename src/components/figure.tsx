@@ -13,7 +13,9 @@ export default function Figure({
   return (
     <figure>
       <Image src={src} alt={alt} />
-      {children && <figcaption className="font-sans">{children}</figcaption>}
+      {children && (
+        <figcaption className="font-sans text-sm">{children}</figcaption>
+      )}
     </figure>
   );
 }

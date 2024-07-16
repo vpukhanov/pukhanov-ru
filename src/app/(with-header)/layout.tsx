@@ -18,7 +18,7 @@ export default function LayoutWithHeader({
         </Link>
         <Navigation />
       </header>
-      <main className="flex flex-1">{children}</main>
+      <main>{children}</main>
     </>
   );
 }
