@@ -1,0 +1,94 @@
+import DatePublished from "@/components/date-published";
+
+export const metadata = {
+  title: "Pros and Cons of Jest Snapshot Testing",
+  description:
+    "Joining a new team, I was thrilled to see their commitment to code quality with a TypeScript codebase and extensive Jest unit tests. But are snapshot tests always the best choice?",
+  datePublished: "2020-06-20",
+};
+
+# {metadata.title}
+
+My current project at work is a React app. I’ve joined this team only a couple of months ago, but I’ve been happy to learn that my new colleagues have been considerate of the code quality: the codebase is 100% TypeScript, excluding some Node modules, which I always prefer over JavaScript, and most of the components and helper functions are covered by unit tests, which use the Jest framework.
+
+At that moment in time, I was new to Jest. Of course, I liked using it for personal projects, whenever I was in the mood to write some tests, but I’ve always used Mocha and Chai at work.
+
+Many of the existing unit tests in the codebase were snapshot tests. And very soon I fell in love with them and started using this approach as often as possible. What’s not to like: just make some test data, pass it to a function or a component, and compare the output to the snapshot. Boom, the test is ready, and there’s no “testing fatigue”, where I get a bit tired and absentminded after writing a bunch of tests in a row.
+
+But are there any disadvantages to this type of testing? They can’t be a panacea after all.
+
+## What exactly is being tested?
+
+Snapshot tests can make it harder to understand, what exactly is being verified by the test. Consider the following example without the snapshot testing first:
+
+```js
+const rootState = {
+  /* ... */
+}; // initial state of the app for testing
+
+test('increaseTemperature should increase initial temperature in all rooms by one degree', () => {
+  const initialState = { ...rootState };
+  const action = increaseTemperature();
+
+  const reducedState = reduce(initialState, action);
+  reducedState.rooms.forEach((room, index) =>
+    expect(room.stats.temperature).toEqual(
+      initialState.rooms[index].stats.temperature + 1
+    )
+  );
+});
+```
+
+Now let's take a look at how this could be written using snapshot matching:
+
+```js
+test('increaseTemperature should increase initial temperature by one degree', () => {
+  const initialState = { ...rootState };
+  const action = increaseTemperature();
+
+  const reducedState = reduce(initialState, action);
+
+  expect(reducedState).toMatchSnapshot();
+});
+```
+
+At the first glance, this test is much easier to write and read, and the result should be the same - by running this test we are making sure that the behavior and the changes that the increaseTemperature action introduces are consistent. And while this is true, some of the benefits of the test were lost.
+
+For example, now you can't see which fields exactly are expected to change after the increaseTemperature action is applied. Without the snapshot testing, you were clearly able to see, that this action changes the stats.temperature of every room, but this knowledge is now lost or at the very least obscured (since the purpose of the test is only available in its name now). As someone who considers unit tests to be a part of my projects' documentation, I consider this important.
+
+Another point to think through is that changing the initial temperature state now requires you to update the snapshot. The prior assertion would have still passed even with this change because it explicitly checked the reduced value against the value in the initial state. And every snapshot update takes some of your precious time since you have to make sure that changing the initial temperature didn't accidentally change something in an unrelated part of the snapshot, especially if it's large.
+
+## Is it even automated anymore?
+
+Let's imagine that we've developed a Greeter component, and we want to test that it renders consistently. With snapshot testing we might've written something along these lines:
+
+```js
+test('Greeter should render correctly', () => {
+  const { asFragment } = render(() => <Greeter name='John' />);
+  expect(asFragment()).toMatchSnapshot();
+});
+```
+
+This, of course, works just fine. But some time has passed, and after some seemingly unrelated changes, the test started failing.
+To understand the source of the issue we have to manually check the difference between snapshots to understand if it fails because of some minor markup change (like extra or missing whitespace, or a couple of new div's), or if the Greeter component is actually broken.
+
+And at this point, can this testing even be considered automated? This is an example where snapshot testing made it really quick to write the test and introduce it into the suite, but it actually increased our workload down the line.
+
+This is how this test could've looked like with regular assertions:
+
+```js
+test('Greeter should render correctly', () => {
+  const { getByText } = render(() => <Greeter name='John' />);
+  getByText('Welcome, John!');
+});
+```
+
+This test is in multiple ways better than the original because it required us to explicitly state, what exactly we consider a "correctly rendered" Greeter (in this case, we thought that if the component greets the user, it's good enough for our needs). It also provides better error messages in case of failure, which will make it easier to find the reason for it - Jest framework tells us, which specific assertion has failed, so we don't need to manually look through the snapshot - yay, we got our automation back!
+
+## Should I never use snapshot testing?
+
+No, of course not, snapshot testing is an important part of our toolbox, but it's a typical case of picking the right tool for a job. When it's easy to see, what you're actually checking with a test, even if you use a snapshot matcher, go for it! If you're testing a very simple component, which you don't expect to change too often, snapshot test seems to be the way to go as well.
+
+I just wanted to remind you, that while Jest Snapshot tests are a powerful tool, they shouldn't be used just because they're quicker to write. You should always take a moment to consider, what you win and what you lose by using the snapshot matcher in the test.
+
+<DatePublished dateTime={metadata.datePublished} />

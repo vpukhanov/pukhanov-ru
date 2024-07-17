@@ -1,0 +1,32 @@
+import DatePublished from "@/components/date-published";
+
+export const metadata = {
+  title: "Code Review: the Small Things and the Big Stuff",
+  description:
+    "Code reviews are a great place to ask questions, align with team standards, and verify architectural decisions.",
+  datePublished: "2023-02-04",
+};
+
+# {metadata.title}
+
+Code review is an essential part of software development. It is a process where peers review code written by their colleagues to find bugs, ensure quality, and maintain code standards. Most new developers assume that the code review's only purpose is to find bugs, but in reality, it is much more than that. It is a place to ask questions, to bring the code up to the team's standard, and to check if the overall architectural decisions make sense.
+
+Many things in code review come to you only with experience. As you start working on more projects and reviewing more code, you begin to understand what is important and what isn't, when to ask questions, when to push for a change, and when to just let it go. This experience allows you to start seeing the Small Things and the Big Stuff in other peoples' code.
+
+## The Small Things
+
+Small Things are the minor details in the code you start to notice after you've been with the same team for a while, that seem correct and make sense, but for some reason look off to you. These are typically related to style, conventions, and best practices. For example, the way a particular issue is solved in the code you're currently reviewing might be different from the way the team usually does it, even though it is still correct. In the case of small things, it is usually better to try to understand why the code under review was written the way it is, and if there are any good reasons to stray away from the way your team usually does things. If there aren't, you should suggest bringing this code in line with what the team's preferred way of approaching the same issue is.
+
+Small Things, when left unchecked, can cause significant problems for the code. These seemingly minor details, such as inconsistent styling or misused conventions, can contribute to increased complexity and decreased readability. This can make it more difficult for other developers to understand the code, leading to longer development times and increased chances of bugs or errors. Neglecting to address Small Things can also create a sense of disregard for code quality and standards, which can absolutely destroy the overall health of the codebase over time. It is important to pay attention to Small Things during code review to create a culture of continuous improvement and collaboration within the development team.
+
+## The Big Stuff
+
+The Big Stuff are the more significant issues in the code, that are mostly about following your language's or framework's preferred constructs. These are usually noticed by experienced developers who have a deep understanding of the tools being used. With enough experience you will start noticing code that seems idiomatically or architecturally incorrect. For example, you might see code that does not fit the framework, tries to "bend" or "break" it in some way. In the case of big stuff, it is a good idea to take a look at what this code is actually trying to achieve and to suggest idiomatic ways of reaching the same goal. A good way to learn language or framework idioms and to train your eye to start noticing these things is to read their official documentation. [The beta React docs are a great example](https://beta.reactjs.org/learn).
+
+Left unchecked, Big Stuff in code can have serious negative effects on the overall quality and maintainability of a project. When architectural decisions are not properly thought out, or the code does not follow the language or framework idioms, it can create significant technical debt that will slow down development and increase maintenance costs. Code that does not fit the framework can make it more difficult to understand, modify, and extend. This can result in decreased developer productivity, increased bugs and errors, and a lack of consistency across the codebase, all of which can seriously impact the project. By catching Big Stuff early on in the code review process, these negative effects can be avoided.
+
+<b>\*\*\*</b>
+
+Code review is much more than just finding bugs. It's a collaborative process where developers can review code, share their knowledge and experience, and ensure the code meets the team's standards and best practices. Paying attention to both the Small Things, like style and conventions, and the Big Stuff, like architectural decisions and framework idioms, can help prevent negative effects on the codebase and promote a culture of continuous improvement within the team.
+
+<DatePublished dateTime={metadata.datePublished} />

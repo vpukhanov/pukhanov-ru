@@ -1,0 +1,157 @@
+import DatePublished from "@/components/date-published";
+
+export const metadata = {
+  title: "Web Vitals: Metrics & Tooling",
+  description:
+    "Web Vitals is a set of metrics by Google to measure web page performance, directly impacting user experience. Improving these metrics can enhance usability and reduce bounce rates.",
+  datePublished: "2021-07-15",
+};
+
+# {metadata.title}
+
+Web Vitals is a set of ±10 metrics compiled by Google's internal team to assess and quantify web page performance. The value of this particular set of metrics, and the reason it's popular with frontend developers, is that all of these metrics have a direct impact on the user experience of page visitors. This means that if we improve these metrics, we are objectively improving the experience of users visiting our site.
+
+Out of all the Web Vitals metrics, a subset of key metrics are selected. These core metrics are paramount in terms of their impact on site usability and user experience:
+
+- Largest Contentful Paint (LCP) - assesses the page load speed, how long it took from the start of loading to rendering the largest (by size) element on it
+- First Input Delay (FID) - estimates interactivity of the page, how much time passes between the first user's interaction with the page (clicking the button, scrolling, etc.) and the call of the corresponding event handler in the browser
+- Cumulative Layout Shift (CLS) - assesses the visual stability of the page during loading, how much and how far from the original position of the large elements move when the page loads.
+
+Google also provides some guidance as to what values of these metrics can be considered good and bad, and [periodically updates them](https://web.dev/defining-core-web-vitals-thresholds/).
+
+## Why these metrics are important
+
+Because these metrics affect the usability of a site, improving them reduces the number of users who leave the site for various reasons. Here's an example of a bad user story:
+
+> Abstract Vova, riding the train through Vyshny Volochek station, decides to read the comments on his spending diary that was posted yesterday in the Tinkoff Journal. He connects to the Wi-Fi on the train with his Nokia 3310 and opens the home page of the site. The article covers load so slowly that he can say they don't load at all and Vova has to search for the post by title, luckily it wasn't published that long ago.
+
+He finds the desired article and happily taps the link, but at that moment the banner styles are loaded and the banner jumps under his finger. Instead of the article he's looking for, Vova ends up on a course purchase page. Not wanting to repeat the process, the user leaves the site.
+
+On the one hand, the site worked, and it can be used in case of emergency. But since the performance metrics are not very good, it can be uncomfortable to use, and visitors can just leave.
+
+Another important reason to keep these metrics in check is that Google uses them in ranking sites, which it explicitly states. It is not disclosed how much they affect the position of pages in search, but in these circumstances, it is better to be safe than sorry.
+
+## Lighthouse
+
+[Lighthouse](https://github.com/GoogleChrome/lighthouse) is an open-source tool that originated with Google, but has moved to open source over time. It allows users to audit web pages by collecting all of a site's vital signs. The advantage of Lighthouse is that it aggregates these metrics and generates several digestible scores from 0 to 100:
+
+- Performance
+- Accessibility
+- Best practices
+- SEO
+- Progressive web application.
+
+In addition to the scores themselves, Lighthouse shows you the factors that led to these results, as well as in many cases ways to fix the situation.
+
+Lighthouse is integrated into a separate Google Chrome devtools tab, so you can try running it yourself on any site. A short version of the report is available [through the web tester](https://web.dev/measure/).
+
+## Perfectum
+
+[Perfectum](https://github.com/Tinkoff/perfectum) is a toolkit from the Tinkoff performance team that consists of several components:
+
+- @perfectum/client library for getting metrics from real users
+- The @perfectum/synthetic library for auditing Lighthouse in automatic mode
+- CLI interface @perfectum/cli to run synthetic audits from the command line
+
+@perfectum/client connects to client code and sends measurement results from users' browsers to a given endpoint. Thus, RUM = real user monitoring, results are obtained from real users of the application. Example of connecting the library:
+
+```js
+import Perfectum from '@perfectum/client';
+import { ENV_NAME } from '.../.../constants-env';
+
+export function initClientMetricsMonitoring() {
+  Perfectum.init({
+    sendMetricsUrl: 'https://endpoint.local/metrics',
+    sendMetricsData: {
+      group: 'tjournal',
+      app: 'mercury-front',
+      env: ENV_NAME === 'production' ? 'prod' : 'test',
+    },
+  });
+}
+```
+
+@perfectum/synthetic allows you to automate Lighthouse auditing of any number of application pages and report generation. It works according to the following scheme:
+
+1. Perfectum receives an audit configuration as input: a list of addresses to measure, device slowdown settings, report format and location, etc.
+
+2. If the configuration contains commands to build and run the project, Perfectum executes them before starting the audit and waits for the web server to start
+
+3. Perfectum launches Chrome in headless mode (with no user interface), looks at the list of url addresses passed to it, and performs Lighthouse analysis on each one. The analysis can be performed several times to avoid spoiling the results with anomalous outliers.
+
+4. HTML reports are saved in the location specified in the configuration.
+
+The resulting reports can be used both to track performance over time and to find optimization opportunities and evaluate implemented optimizations.
+
+A console tool @perfectum/cli has been made to easily use this library from the terminal and in CI pipelines.
+
+To run Perfectum's synthetic audit, you must install @perfectum/cli and use its audit command:
+
+```shell
+yarn global add @perfectum/cli
+perfectum audit <options>
+
+# or install locally
+yarn add --dev @perfectum/cli
+yarn exec perfectum audit -- <options>
+```
+
+In this case, the configuration will be taken from the perfectum.json file in the working directory, and additional parameters (such as a list of addresses) can be passed in command-line arguments. Example JSON configuration:
+
+```json
+{
+  "synthetic": {
+    "urls": {
+      "main": "https://journal.tinkoff.ru"
+    },
+    "numberOfAuditRuns": 3,
+    "browserConfig": {
+      "logLevel": "silent",
+      "chromeFlags": ["--disable-dev-shm-usage"]
+    },
+    "auditConfig": {
+      "mobile": {
+        "settings": {
+          "throttling": {
+            "rttMs": 150,
+            "throughputKbps": 1638,
+            "cpuSlowdownMultiplier": 4
+          }
+        }
+      },
+      "desktop": {
+        "settings": {
+          "throttling": {
+            "rttMs": 40,
+            "throughputKbps": 10240,
+            "cpuSlowdownMultiplier": 1
+          }
+        }
+      }
+    },
+    "reporterConfig": {
+      "reportPrefixName": "performance-report",
+      "reportOutputPath": "./.performance-reports"
+    },
+    "reportFormats": ["html"]
+  },
+  "clearReportFilesDirectoryBeforeAudit": true
+}
+```
+
+Let me explain some non-obvious settings:
+
+- "chromeFlags": ["--disable-dev-shm-usage"] - in pipelining, the audit runs in a docker container, which has no access to shared memory via /dev/shm. It can be flushed through from the host, but it is easier to prevent it from being used in Chrome
+- AuditConfig - these settings are passed to Lighthouse when you start the analysis. In our case I pass the system slowdown settings used by Google in the official Lighthouse release
+- rttMs - round-trip time in milliseconds, the time it takes a packet from the client to reach the server and back again. This parameter allows to emulate different network states, more or less busy
+- throughputKbps - throughput of the emulated network, controls the maximum throughputYou can see the state of the emulated device and network at the end of the Lighthouse report
+
+## Synthetic audit vs. RUM
+
+Synthetic tests with @perfectum/synthetic or Lighthouse and real user monitoring collected with @perfectum/client, for example, are supposed to keep the same metrics. Each of these approaches has advantages not inherent in the other.
+
+For example, monitoring real users allows us to get information from "field trials," and in huge numbers. Thanks to it, we can find out how effective our pages are for real users, what exactly we need to pay attention to in order to improve the experience of as many visitors to our site as possible.
+
+At the same time, synthetic audits allow us to catch major changes in performance as early as the development phase, which gives us the opportunity to assess how new functionality affects the performance of the site as a whole and specific pages separately.
+
+<DatePublished dateTime={metadata.datePublished} />
