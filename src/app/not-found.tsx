@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import image from "./not-found.webp";
 
@@ -16,9 +15,6 @@ export default function NotFound() {
       <h2 className="text-8xl font-bold tracking-widest" title="404">
         4 🥲 4
       </h2>
-      <Link href="/" className="mt-4 text-4xl underline">
-        Go to safety
-      </Link>
     </div>
   );
 }
