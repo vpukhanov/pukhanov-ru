@@ -1,9 +1,9 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ReactNode } from "react";
 
+import DynamicLayout from "@/components/dynamic-layout";
 import { charter, inter } from "@/components/fonts";
 
 import "./globals.css";
@@ -27,19 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`bg-white font-sans text-gray-950 antialiased dark:bg-black dark:text-gray-50 ${inter.variable} ${charter.variable}`}
       >
-        <div className="mx-auto flex min-h-dvh max-w-2xl flex-col px-4 py-10">
-          {children}
-          <footer className="mt-10 text-center text-sm">
-            © 2018-{new Date().getFullYear()} Vyacheslav Pukhanov.{" "}
-            <Link
-              href="https://github.com/vpukhanov/pukhanov-ru"
-              target="_blank"
-              className="underline"
-            >
-              View Source
-            </Link>
-          </footer>
-        </div>
+        <DynamicLayout>{children}</DynamicLayout>
         <Analytics />
         <SpeedInsights />
       </body>
