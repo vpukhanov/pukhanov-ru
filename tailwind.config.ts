@@ -25,6 +25,13 @@ const config: Config = {
     extend: {
       animation: {
         "spin-slow": "spin 3s linear infinite",
+        "stripe-movement": "stripe-movement 10s ease-in-out infinite alternate",
+      },
+      keyframes: {
+        stripeMovement: {
+          "0%, 100%": { transform: "scaleY(1) translateY(0)" },
+          "50%": { transform: "scaleY(1.1) translateY(-10px)" },
+        },
       },
     },
   },
