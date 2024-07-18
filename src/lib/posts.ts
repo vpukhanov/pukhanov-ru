@@ -1,4 +1,5 @@
 import { async as glob } from "fast-glob";
+import path from "path";
 
 export type PostMetadata = {
   title: string;
@@ -11,15 +12,17 @@ export async function posts() {
   const paths = await glob("src/app/\\(prose\\)/posts/(*)/page.mdx");
 
   // src/app/(prose)/posts/<name>/page.mdx -> <name>
-  const slugs = paths.map((path) => path.split("/").at(-2)!);
-  const imports = await Promise.all(
-    slugs.map((slug) => import(`@/app/(prose)/posts/${slug}/page.mdx`)),
-  );
+  const posts = await Promise.all(
+    paths.map(async (filePath) => {
+      const slug = path.basename(path.dirname(filePath));
+      const data = await import(`@/app/(prose)/posts/${slug}/page.mdx`);
 
-  const posts = slugs.map((slug, index) => ({
-    slug,
-    metadata: imports[index].metadata as PostMetadata,
-  }));
+      return {
+        slug,
+        metadata: data.metadata as PostMetadata,
+      };
+    }),
+  );
 
   // Sort by datePublished, newest to oldest
   posts.sort(
