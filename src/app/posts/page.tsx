@@ -37,7 +37,7 @@ function Post({
       <div>{description}</div>
       <time
         dateTime={datePublished}
-        className="block tabular-nums tracking-tight text-sm"
+        className="block text-sm tabular-nums tracking-tight"
       >
         {datePublished}
       </time>
