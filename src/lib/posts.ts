@@ -11,7 +11,6 @@ export type PostMetadata = {
 export async function posts() {
   const paths = await glob("src/app/\\(prose\\)/posts/(*)/page.mdx");
 
-  // src/app/(prose)/posts/<name>/page.mdx -> <name>
   const posts = await Promise.all(
     paths.map(async (filePath) => {
       const slug = path.basename(path.dirname(filePath));
@@ -24,7 +23,6 @@ export async function posts() {
     }),
   );
 
-  // Sort by datePublished, newest to oldest
   posts.sort(
     (a, b) => -a.metadata.datePublished.localeCompare(b.metadata.datePublished),
   );
