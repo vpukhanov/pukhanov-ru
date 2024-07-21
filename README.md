@@ -2,11 +2,26 @@
 
 Personal website made with [Next.js](https://nextjs.org/), [@next/mdx](https://nextjs.org/docs/app/building-your-application/configuring/mdx). I am using [Tailwind CSS](https://tailwindcss.com/) in this version as an experiment.
 
-Currently deployed to [Vercel](https://vercel.com/) with their managed Next.js hosting, but can be quickly re-deployed to a cloud VM or in a static object storage (with few changes).
+## Running
+
+```
+npm install
+cp .env.example .env
+npm run dev
+```
+
+## Deployment
+
+This project uses [Kamal](https://kamal-deploy.org/) for deployments. Ensure you have Kamal installed and configured.
+
+1. Copy `.env.example` to `.env` and fill in the necessary variables.
+2. Configure your deployment settings in `config/deploy.yml`.
+3. Deploy with `kamal deploy`.
+
 
 ## Configuration
 
-This website is configured using build-time environment variables. They are documented in the [.env](.env) file.
+This website is configured using build-time environment variables. They are documented in the [.env.example](.env.example) file.
 
 ## Fonts
 

@@ -28,6 +28,7 @@ healthcheck:
   port: "80"
 
 builder:
+  context: .
   secrets:
     - GITHUB_PAT
 
