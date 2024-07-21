@@ -9,8 +9,8 @@ servers:
     options:
       "add-host": host.docker.internal:host-gateway
     labels:
-      traefik.http.routers.pukhanov-ru.rule: Host(`pukhanov.ru`)
-      traefik.http.routers.pukhanov-ru_secure.rule: Host(`pukhanov.ru`)
+      traefik.http.routers.pukhanov-ru.rule: Host(`pukhanov.ru`) || Host(`www.pukhanov.ru`)
+      traefik.http.routers.pukhanov-ru_secure.rule: Host(`pukhanov.ru`) || Host(`www.pukhanov.ru`)
       traefik.http.routers.pukhanov-ru_secure.entrypoints: websecure
       traefik.http.routers.pukhanov-ru_secure.tls.certresolver: letsencrypt
       traefik.http.routers.pukhanov-ru_secure.middlewares: www-redirect
