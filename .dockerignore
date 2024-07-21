@@ -7,3 +7,5 @@ README.md
 !.next/static
 !.next/standalone
 .git
+config
+.kamal
