@@ -27,6 +27,9 @@ registry:
 ssh:
   user: <%= ENV['KAMAL_SERVER_USER'] %>
 
+healthcheck:
+  port: "80"
+
 env:
   secret:
     - KAMAL_SERVER_IP
