@@ -9,7 +9,7 @@ export default function IntroPage() {
     <main className="flex flex-1 flex-col items-center justify-center text-2xl sm:text-4xl">
       <section>
         <HeroTitle className="mb-2 text-4xl sm:mb-6 sm:text-6xl" />
-        <Navigation className="mb-2 sm:mb-6" />
+        <Navigation className="mb-2 pb-[0.1em] sm:mb-6" />
         <Link
           href="mailto:vyacheslav@pukhanov.ru"
           target="_blank"
