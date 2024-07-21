@@ -13,9 +13,6 @@ servers:
       traefik.http.routers.pukhanov-ru_secure.rule: Host(`pukhanov.ru`) || Host(`www.pukhanov.ru`)
       traefik.http.routers.pukhanov-ru_secure.entrypoints: websecure
       traefik.http.routers.pukhanov-ru_secure.tls.certresolver: letsencrypt
-      traefik.http.routers.pukhanov-ru_secure.middlewares: www-redirect
-      traefik.http.middlewares.www-redirect.redirectRegex.regex: ^https://www.pukhanov.ru/(.*)
-      traefik.http.middlewares.www-redirect.redirectRegex.replacement: https://pukhanov.ru/$${1}
 
 registry:
   server: cr.selcloud.ru
