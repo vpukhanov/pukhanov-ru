@@ -30,6 +30,10 @@ ssh:
 healthcheck:
   port: "80"
 
+builder:
+  secrets:
+    - GITHUB_PAT
+
 env:
   secret:
     - KAMAL_SERVER_IP
