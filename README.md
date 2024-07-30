@@ -10,15 +10,6 @@ cp .env.example .env
 npm run dev
 ```
 
-## Deployment
-
-This project uses [Kamal](https://kamal-deploy.org/) for deployments. Ensure you have Kamal installed and configured.
-
-1. Copy `.env.example` to `.env` and fill in the necessary variables.
-2. Configure your deployment settings in `config/deploy.yml`.
-3. Deploy with `kamal deploy`.
-
-
 ## Configuration
 
 This website is configured using build-time environment variables. They are documented in the [.env.example](.env.example) file.
