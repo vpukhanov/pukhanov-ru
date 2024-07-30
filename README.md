@@ -6,13 +6,12 @@ Personal website made with [Next.js](https://nextjs.org/), [@next/mdx](https://n
 
 ```
 npm install
-cp .env.example .env
 npm run dev
 ```
 
 ## Configuration
 
-This website is configured using build-time environment variables. They are documented in the [.env.example](.env.example) file.
+This website is configured using build-time environment variables. They are documented in the [.env](.env) file.
 
 ## Fonts
 
