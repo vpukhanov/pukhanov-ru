@@ -11,7 +11,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Vyacheslav Pukhanov",
   description:
-    "Senior frontend engineer promoted to team lead in 2024, working in the media projects department at T-Bank (formerly Tinkoff) on the Т—Ж project, the leading media platform covering finance, life, and human experiences.",
+    "Senior frontend engineer promoted to tech lead in 2024, working in the media projects department at T-Bank (formerly Tinkoff) on the Т—Ж project, the leading media platform covering finance, life, and human experiences.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
