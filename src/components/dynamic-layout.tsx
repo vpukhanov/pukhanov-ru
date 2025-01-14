@@ -21,16 +21,18 @@ export default function DynamicLayout({ children }: { children: ReactNode }) {
         </header>
       )}
       {isIndexPage ? children : <main>{children}</main>}
-      <footer className="mt-10 text-center text-sm">
-        © 2018-{new Date().getFullYear()} Vyacheslav Pukhanov.{" "}
-        <Link
-          href="https://github.com/vpukhanov/pukhanov-ru"
-          target="_blank"
-          className="underline"
-        >
-          View Source
-        </Link>
-      </footer>
+      {!isIndexPage && (
+        <footer className="mt-10 text-center text-sm">
+          © 2018-{new Date().getFullYear()} Vyacheslav Pukhanov.{" "}
+          <Link
+            href="https://github.com/vpukhanov/pukhanov-ru"
+            target="_blank"
+            className="underline"
+          >
+            View Source
+          </Link>
+        </footer>
+      )}
     </div>
   );
 }
