@@ -9,15 +9,17 @@ npm install
 npm run dev
 ```
 
+The website uses ITC Charter as its serif font. If you don't have the font files, you'll need to modify `src/components/fonts.ts` and replace the `charter` export with:
+
+```typescript
+export const charter = { variable: "" };
+```
+
+This will allow the app to run with system serif fonts as fallback. Alternatively, you can place your own woff2 font files in `src/components/fonts` if you have them, or configure a different serif font entirely.
+
 ## Configuration
 
 This website is configured using build-time environment variables. They are documented in the [.env](.env) file.
-
-## Fonts
-
-Inter is used as the sans and is automatically downloaded from Google Fonts.
-
-ITC Charter is used as the serif. Put your woff2 font files in `src/components/fonts` or configure a different serif font.
 
 ## Licensing
 

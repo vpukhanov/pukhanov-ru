@@ -11,6 +11,7 @@ const config: Config = {
       serif: [
         "var(--font-charter)",
         "Charter",
+        "Georgia",
         ...defaultTheme.fontFamily.serif,
       ],
       sans: [
