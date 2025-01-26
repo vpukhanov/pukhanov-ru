@@ -16,7 +16,7 @@ export default function Navigation({ className = "" }: { className?: string }) {
       </Link>
       <span className="text-gray-300 dark:text-gray-600">•</span>
       <Link href="/contributions" className="underline">
-        Contributions
+        OSS
       </Link>
     </nav>
   );
