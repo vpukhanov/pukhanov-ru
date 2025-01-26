@@ -11,6 +11,10 @@ export default function Navigation({ className = "" }: { className?: string }) {
         Posts
       </Link>
       <span className="text-gray-300 dark:text-gray-600">•</span>
+      <Link href="/apps" className="underline">
+        Apps
+      </Link>
+      <span className="text-gray-300 dark:text-gray-600">•</span>
       <Link href="/contributions" className="underline">
         Contributions
       </Link>
