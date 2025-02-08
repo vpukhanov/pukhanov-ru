@@ -7,6 +7,7 @@ import blockaliciousScreenshot from "./blockalicious-screenshot.png";
 import diversequalityScreenshot from "./diversequality-screenshot.png";
 import vipinatorIcon from "./vipinator-icon.png";
 import vipinatorScreenshot from "./vipinator-screenshot.png";
+import webMultiverseScreenshot from "./web-multiverse-screenshot.png";
 
 export const metadata: Metadata = {
   title: "Apps | Vyacheslav Pukhanov",
@@ -30,17 +31,6 @@ interface App {
 
 const apps: App[] = [
   {
-    name: "Diversequality",
-    description:
-      "A fun weekend project, a web application that analyzes news articles and events through the lens of diversity, equity, and inclusion using LLMs.",
-    sourceCodeLink: "https://github.com/vpukhanov/diversequality",
-    screenshot: diversequalityScreenshot,
-    applicationLink: {
-      url: "https://dvrst.io",
-      text: "Visit the website",
-    },
-  },
-  {
     name: "Vipinator",
     description:
       "A macOS menu bar app that lets you manage VPN connections from the menu bar. Perfect for quickly toggling VPN on and off.",
@@ -51,12 +41,34 @@ const apps: App[] = [
     blogPost: "/posts/vipinator-release",
   },
   {
+    name: "Web Multiverse",
+    description:
+      "A fantasy web browser that generates AI-created webpages for an imaginary universe that you can customize.",
+    sourceCodeLink: "https://github.com/vpukhanov/web-multiverse",
+    screenshot: webMultiverseScreenshot,
+    applicationLink: {
+      url: "https://multiverse.pukhanov.ru",
+      text: "Visit the website",
+    },
+  },
+  {
     name: "glee",
     description:
       "A command-line tool that makes managing Git's .git/info/exclude file really easy. Keep your repos tidy by maintaining a list of local-only ignores.",
     sourceCodeLink: "https://github.com/vpukhanov/glee",
     installCommand: "brew install vpukhanov/tools/glee",
     blogPost: "/posts/from-frustration-to-glee",
+  },
+  {
+    name: "Diversequality",
+    description:
+      "A fun weekend project, a web application that analyzes news articles and events through the lens of diversity, equity, and inclusion using LLMs.",
+    sourceCodeLink: "https://github.com/vpukhanov/diversequality",
+    screenshot: diversequalityScreenshot,
+    applicationLink: {
+      url: "https://dvrst.io",
+      text: "Visit the website",
+    },
   },
   {
     name: "Blockalicious",

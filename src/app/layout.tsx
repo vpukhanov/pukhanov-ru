@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 
