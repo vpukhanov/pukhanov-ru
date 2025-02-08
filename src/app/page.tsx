@@ -2,7 +2,8 @@ import Link from "next/link";
 
 import HeroTitle from "@/components/hero-title";
 import AtIcon from "@/components/icons/at";
-import PaperPlaneIcon from "@/components/icons/paper-plane";
+import TelegramIcon from "@/components/icons/telegram";
+import XIcon from "@/components/icons/x";
 import Navigation from "@/components/navigation";
 
 export default function IntroPage() {
@@ -23,10 +24,19 @@ export default function IntroPage() {
         <Link
           href="https://t.me/vpukhanov"
           target="_blank"
-          className="flex items-center gap-3"
+          className="mb-1 flex items-center gap-3"
           title="Send me a message on Telegram @vpukhanov"
         >
-          <PaperPlaneIcon className="mt-1 h-6 w-6 sm:mt-2 sm:h-8 sm:w-8" />
+          <TelegramIcon className="mt-1 h-6 w-6 sm:mt-2 sm:h-8 sm:w-8" />
+          <span className="underline">@vpukhanov</span>
+        </Link>
+        <Link
+          href="https://x.com/vpukhanov"
+          target="_blank"
+          className="flex items-center gap-3"
+          title="Follow me on X @vpukhanov"
+        >
+          <XIcon className="mt-1 h-6 w-6 sm:mt-2 sm:h-8 sm:w-8" />
           <span className="underline">@vpukhanov</span>
         </Link>
       </section>
