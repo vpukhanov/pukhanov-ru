@@ -1,3 +1,91 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-*: initial;
+  --font-serif: var(
+    --font-charter,
+    Charter,
+    Georgia,
+    ui-serif,
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    Times,
+    serif
+  );
+  --font-sans: var(
+    --font-inter,
+    Inter,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji"
+  );
+
+  --animate-spin-slow: spin 3s linear infinite;
+  --animate-stripe-movement: stripe-movement 10s ease-in-out infinite alternate;
+  --animate-wave: wave 2.5s linear infinite;
+  --animate-rainbow-move: rainbow-move 10s linear infinite;
+
+  --background-image-rainbow: linear-gradient(
+    60deg,
+    #ff5c5c,
+    #ff9a4d,
+    #ffe74c,
+    #67e0a3,
+    #4db4ff,
+    #ab7cff,
+    #ff5c5c
+  );
+
+  @keyframes stripe-movement {
+    0%,
+    100% {
+      transform: scaleY(1) translateY(0);
+    }
+    50% {
+      transform: scaleY(1.1) translateY(-10px);
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60%,
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes rainbow-move {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+}
