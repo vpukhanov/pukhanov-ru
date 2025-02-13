@@ -10,7 +10,7 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@next/mdx": "15.1.4",
+    "@next/mdx": "15.1.7",
     "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.4.1",
     "fast-glob": "^3.3.3",
