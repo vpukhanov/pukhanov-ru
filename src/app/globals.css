@@ -4,7 +4,8 @@
 @theme {
   --font-*: initial;
   --font-serif: var(
-    --font-charter,
+    --font-charis,
+    "Charis SIL",
     Charter,
     Georgia,
     ui-serif,

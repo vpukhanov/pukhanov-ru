@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 import DynamicLayout from "@/components/dynamic-layout";
-import { charter, inter } from "@/components/fonts";
+import { charis, inter } from "@/components/fonts";
 
 import "./globals.css";
 
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body
-        className={`bg-white font-sans text-gray-950 antialiased dark:bg-black dark:text-gray-50 ${inter.variable} ${charter.variable}`}
+        className={`bg-white font-sans text-gray-950 antialiased dark:bg-black dark:text-gray-50 ${inter.variable} ${charis.variable}`}
       >
         <DynamicLayout>{children}</DynamicLayout>
         <Analytics />
