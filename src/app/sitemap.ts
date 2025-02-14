@@ -21,10 +21,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: "https://pukhanov.ru/apps",
       priority: 0.8,
     },
-    {
-      url: "https://pukhanov.ru/contributions",
-      priority: 0.7,
-    },
     ...postItems.map((post) => ({
       url: `https://pukhanov.ru/posts/${post.slug}`,
     })),
