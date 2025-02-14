@@ -88,7 +88,7 @@ export default function AppsPage() {
   return (
     <div>
       <h1 className="mb-8 text-4xl font-extrabold">Apps</h1>
-      <p className="mb-8">
+      <p className="mb-8 font-serif text-lg">
         Here are some open-source apps I&apos;ve created in my spare time. Each
         one started as a solution to a personal need, and I&apos;m happy to
         share them with others who might find them useful.
@@ -113,7 +113,7 @@ export default function AppsPage() {
               )}
             </Link>
           </div>
-          <p>{app.description}</p>
+          <p className="font-serif text-lg">{app.description}</p>
           {app.screenshot && (
             <div className="overflow-hidden rounded-lg">
               <Image
@@ -124,7 +124,7 @@ export default function AppsPage() {
             </div>
           )}
           {app.installCommand && (
-            <pre className="font-mono overflow-x-auto rounded-lg bg-gray-100 p-4 text-sm dark:bg-gray-900">
+            <pre className="overflow-x-auto rounded-lg bg-gray-100 p-4 font-mono text-sm dark:bg-gray-900">
               <code>{app.installCommand}</code>
             </pre>
           )}
