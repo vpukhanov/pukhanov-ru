@@ -1,0 +1,52 @@
+---
+title: "React Framework Shift"
+description: "React has always been a flexible UI library, but more recent changes suggest it's becoming reliant on full frameworks."
+datePublished: "2025-02-15"
+---
+
+import DatePublished from "@/components/date-published";
+import Figure from "@/components/figure";
+
+import honoImg from "./hono.png";
+import rscBundlerImg from "./rsc-bundler.png";
+import viteImg from "./vite.png";
+
+# {metadata.title}
+
+For a long time, React was just a UI library. It didn't tell you how to structure your app, where to put your data fetching, or what build tools to use. That was its appeal—it was flexible, adaptable, and worked in all sorts of environments. But recently, it feels like React is shifting away from being a standalone library and becoming more of an API description, something that needs a larger framework around it to be usable.
+
+This became especially noticeable with the introduction of Suspense for data fetching, Server Components and Server Actions. These features were released with [tight integration into frameworks like Next.js and Remix](https://react.dev/blog/2022/03/29/react-v18#suspense-in-data-frameworks), without any documentation on how they could be used elsewhere. If you wanted to take advantage of them outside of those frameworks, you were on your own. This alone wouldn't be too concerning—after all, some features do need a backend to function—but it's part of a broader trend where React is becoming more and more intertwined with specific tools.
+
+<Figure
+  src={rscBundlerImg}
+  alt="A screenshot from React 18 release notes, saying 'So even long term, we expect that libraries and frameworks will play a crucial role in the React ecosystem.'"
+>
+  "So even long term, we expect that libraries and frameworks will play a
+  crucial role in the React ecosystem."
+</Figure>
+
+[The deprecation of Create React App (CRA)](https://react.dev/blog/2025/02/14/sunsetting-create-react-app) reinforced this shift. CRA wasn't perfect, and it was outdated, but it was a common and straightforward way for beginners to start a React project. With its deprecation, React's official documentation now suggests using a framework first. If you don't want to, they recommend Vite, but even in that section, they push React Router v7 as a "framework." The wording in these recommendations makes it clear that React's identity as a standalone UI library is fading.
+
+<Figure
+  src={viteImg}
+  alt="A screenshot from blog post about deprecating CRA, saying 'Do you recommend Vite? 'React Router v7 is a Vite based framework which allows you to use Vite’s fast development server and build tooling with a framework that provides routing and data fetching. Just like the other frameworks we recommend, you can build a SPA with React Router v7."
+>
+  "React recommends using a framework that integrates with build tools like Vite
+  for new projects."
+</Figure>
+
+This evolution of React isn't necessarily bad. Frameworks provide powerful abstractions, making it easier to build complete applications without worrying about the low-level details. But at the same time, it creates a more fragmented landscape where different frameworks interpret React in their own ways. We're already seeing this with [frameworks like Hono](https://hono.dev/), that [are React-compatible](https://hono.dev/docs/guides/jsx-dom#hooks-compatible-with-react) but obviously reimplement parts of it differently, even if in subtle ways.
+
+<Figure
+  src={honoImg}
+  alt="A screenshot of Hono's documentation, showing a component that uses useState, but doesn't import React. It imports hono/jsx instead."
+>
+  Hono components look like React ones, they use similarly named hooks, but
+  they're ultimately their own thing.
+</Figure>
+
+What's missing in all this is a clear, solidified identity for React itself. The official documentation should emphasize React as a UI library first, with guidance on how to set up a project using just React, without a framework. Frameworks should be positioned as optional tools that add additional functionality—not as the default way to use React.
+
+If this trajectory continues, we could end up in a world where "React" no longer refers to a specific library, but instead to a collection of loosely related ideas that change depending on the framework you use. That's a future where React is harder to learn, harder to use independently, and more fragmented than ever.
+
+<DatePublished dateTime={metadata.datePublished} />
