@@ -15,7 +15,7 @@ const withMDX = nextMDX({
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   outputFileTracingIncludes: {
-    "/posts/feed.xml": ["./src/app/(prose)/posts/**/*"],
+    "/posts/feed.xml": ["./app/(prose)/posts/**/*"],
   },
 };
 

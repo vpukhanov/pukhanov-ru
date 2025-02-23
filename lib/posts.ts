@@ -9,7 +9,7 @@ export type PostMetadata = {
 };
 
 export async function posts() {
-  const paths = await glob("src/app/\\(prose\\)/posts/(*)/page.mdx");
+  const paths = await glob("app/\\(prose\\)/posts/(*)/page.mdx");
 
   const posts = await Promise.all(
     paths.map(async (filePath) => {
