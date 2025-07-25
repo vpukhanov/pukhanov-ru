@@ -90,8 +90,8 @@ export default function AppsPage() {
       <h1 className="mb-8 text-4xl font-extrabold">Apps</h1>
       <p className="mb-8 font-serif text-lg">
         These are some of the open-source apps I built in my free time. Each one
-        began as a way to solve a problem I had, and I hope they're useful to
-        others too.
+        began as a way to solve a problem I had, and I hope they&apos;re useful
+        to others too.
       </p>
       {apps.map((app) => (
         <article key={app.name} className="mb-8 space-y-4">
