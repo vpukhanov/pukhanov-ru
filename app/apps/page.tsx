@@ -73,13 +73,13 @@ const apps: App[] = [
   {
     name: "Blockalicious",
     description:
-      "A productivity content blocker for Safari on macOS that lets you block arbitrary domains and deactivate the block in one click.",
+      "A productivity content blocker for Safari on iOS and macOS that lets you block arbitrary domains and deactivate the block in one click.",
     sourceCodeLink: "https://github.com/vpukhanov/blockalicious",
     screenshot: blockaliciousScreenshot,
     icon: blockaliciousIcon,
     applicationLink: {
       url: "https://apps.apple.com/ru/app/blockalicious/id1608665824",
-      text: "Download from Mac App Store",
+      text: "Download from the App Store",
     },
   },
 ];
@@ -89,9 +89,9 @@ export default function AppsPage() {
     <div>
       <h1 className="mb-8 text-4xl font-extrabold">Apps</h1>
       <p className="mb-8 font-serif text-lg">
-        Here are some open-source apps I&apos;ve created in my spare time. Each
-        one started as a solution to a personal need, and I&apos;m happy to
-        share them with others who might find them useful.
+        These are some of the open-source apps I built in my free time. Each one
+        began as a way to solve a problem I had, and I hope they're useful to
+        others too.
       </p>
       {apps.map((app) => (
         <article key={app.name} className="mb-8 space-y-4">
