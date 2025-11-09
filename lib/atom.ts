@@ -13,7 +13,6 @@ export async function postsAtom() {
     },
     author: {
       name: "Vyacheslav Pukhanov",
-      email: "vyacheslav@pukhanov.ru",
       link: "https://pukhanov.ru",
     },
   });
