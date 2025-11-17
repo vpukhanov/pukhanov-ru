@@ -1,0 +1,60 @@
+---
+title: "Updating My Apps for Liquid Glass"
+description: "A quick look at how I updated my small iOS and macOS apps for Apple’s new Liquid Glass design language, and what it was like revisiting these old side projects."
+datePublished: "2025-11-17"
+---
+
+import DatePublished from "@/components/date-published";
+import Figure from "@/components/figure";
+
+import blockaliciousIconsImg from './blockalicious-icons.png';
+import blockaliciousIosImg from './blockalicious-ios.png';
+import blockaliciousMacOsImg from './blockalicious-macos.png';
+import trefoIconsImg from './trefo-icons.png';
+import trefoIosImg from './trefo-ios.png';
+import unidueIconsImg from './unidue-icons.png';
+import unidueIos1Img from './unidue-ios-1.png';
+import unidueIos2Img from './unidue-ios-2.png';
+
+# {metadata.title}
+
+Some of you know that I make small iOS and macOS apps as hobby side projects. I enjoy the look and feel of Apple platforms, and I also find them genuinely pleasant to build for. Swift still reminds me of C in ways I appreciate on an aesthetic level (even though each year it drifts further away, becoming more complex and less elegant in my opinion). The platforms and their gigantic collection of frameworks are fun to explore, and they constantly give me new ideas to try out.
+
+I’ve been using an iPhone ever since I bought my first one, an original iPhone SE, when I was 18. I saved up for it while working my first job as a junior frontend engineer. A few years later, I purchased a minimum-spec 13-inch MacBook Pro with an Intel Core i5 and a Touch Bar, and that’s when my experience with developing for Apple platforms really started. I’m not a designer, but I care a lot about my apps feeling native. I’ve used Apple apps for so long that their patterns and decisions are almost second nature to me, and I try to reflect that in anything I build for their platforms.
+
+So when Apple introduced their [new Liquid Glass design language](https://youtu.be/jGztGfRujSE?si=m1Djcmv2nZ4UZ3NX), I knew I wanted to revisit some of my older apps that had been sitting dormant on the App Store. The icons were the part I dreaded the most, I’m not great at graphics, but everything else felt like a good excuse to refresh, modernise and bring them closer to today’s platform aesthetic. Now that I’ve finished a first pass of updates for all of them, I wanted to document the changes here.
+
+## Blockalicious
+
+Blockalicious is a privacy-first website blocker for Safari on iOS and macOS that helps users stay focused. It uses Safari’s native content-blocker API, so all filtering happens fully on-device. No tracking, no analytics, no data collection.
+
+At this point, I’m pretty sure Screen Time can also block specific sites and set limits directly in system settings, without third-party apps. But, for whatever reason, people keep discovering and using Blockalicious. It’s currently my most-used app on the App Store, with hundreds of devices running it, so I continue to maintain it.
+
+Download on the App Store or view source code.
+
+<Figure src={blockaliciousIconsImg} alt="Blockalicious icons" />
+<Figure src={blockaliciousIosImg} alt="Blockalicious iOS app" />
+<Figure src={blockaliciousMacOsImg} alt="Blockalicious macOS app" />
+
+## Trefo
+
+Trefo is a small companion app for organising travel memories. You turn on Travel Mode before your trip and turn it off when you return. The app collects all photos taken during the trip and puts them into a separate album, keeping the main Camera Roll clean. The idea and the implementation are simple, which means the design mostly comes down to decoration rather than heavy functional work.
+
+Download on the App Store or view source code.
+
+<Figure src={trefoIconsImg} alt="Trefo icons" />
+<Figure src={trefoIosImg} alt="Trefo iOS app" />
+
+## Unidue
+
+Unidue is a lightweight productivity app for tracking assignments and courses. You can attach notes, files, slides, and anything you need to keep in mind. There’s also a calendar view that lays out all upcoming due dates in a more visual way.
+
+Out of these three, Unidue is the most fully featured: it includes an Apple Watch app, widgets, and a small Siri integration. It originally launched as a paid app and sold around ten copies if I recall correctly. Subsequently, with sales flatlining, I made it free. This lets more people try it, and it also lowers the pressure I feel to keep it perfectly polished at all times.
+
+Download on the App Store or view source code.
+
+<Figure src={unidueIconsImg} alt="Unidue icons" />
+<Figure src={unidueIos1Img} alt="Unidue iOS app" />
+<Figure src={unidueIos2Img} alt="Unidue iOS app" />
+
+<DatePublished dateTime={metadata.datePublished} />
