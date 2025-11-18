@@ -11,8 +11,8 @@ export default function Navigation({ className = "" }: { className?: string }) {
         Posts
       </Link>
       <span className="text-gray-300 dark:text-gray-600">•</span>
-      <Link href="/apps" className="underline">
-        Apps
+      <Link href="https://github.com/vpukhanov" className="underline" target="_blank">
+        GitHub
       </Link>
     </nav>
   );
