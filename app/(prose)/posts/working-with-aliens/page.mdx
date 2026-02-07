@@ -1,0 +1,37 @@
+---
+title: "Working with Aliens"
+description: "Something is off about the way AI is changing how we write and review code, and I've been trying to figure out exactly what."
+datePublished: "2026-02-07"
+---
+
+import DatePublished from "@/components/date-published";
+
+# {metadata.title}
+
+My approach to code has changed over the years. I used to love writing clever, architecturally "correct" systems, where everything fits together by the book. Eventually, I realised that while these systems made perfect sense in my head, other people often struggled to adopt my mental model. It was overly complicated, even if it felt elegant to me.
+
+I eventually changed my approach and turned to writing simple, readable code. Some might call it dumb, but I think of it as choosing simplicity over cleverness. I actually began to appreciate how writing simple code is challenging in its own way, and provides its benefits. I prefer team conventions and asynchronous communication over rigid frameworks and piles of decision documents that are difficult to change. When there's a real architectural question, we write an RFC and discuss it. The goal is sustainability: don't create problems for whoever comes after you.
+
+This approach is fundamentally human-centric. It prioritises understanding, collaboration, the texture of working with other people over time. My last post was about [engineering culture](/posts/on-losing-engineering-culture) — thinking from first principles, developing a deep understanding of your tools, caring about the craft itself and not just the output. What I'm describing here is related: a way of working that puts quality and continued developer experience over quick results.
+
+And then there's AI, and I really want to stay as fair as possible here. AI collaboration has worked for me in specific contexts: menial refactors that need similar changes across an entire codebase, major dependency updates with detailed migration guides, first drafts to see what a common straightforward (sometimes brute-forced) solution looks like. Prototypes that will never go into production, one-off scripts, migrations. In these cases, I use it to enhance and supplement my thought process — rarely for actual implementation.
+
+But what I'm seeing more broadly is different. The workflow for some engineers has changed and goes differently: pick up a task, let the agent at it, verify that the happy path works or the tests pass, submit for review. The thinking only starts when the code hits someone else's eyes. And reviewing AI-generated code is considerably harder than reviewing code written by a colleague. There's no underlying intent I can reason about, no mental model of the author's approach that I can build up over time. The code might work, it might even be correct, but something is missing. It's like reading a literal translation that preserves the words but loses the meaning.
+
+This creates an uneven workload. Some work in code review — thinking about whether the architecture makes sense, catching corner cases, questioning if there's a better approach — is harder and less visible than checking for typos or obvious mistakes. When AI-generated code floods in without much human thought behind it, that deeper review work multiplies. And it falls on whoever is doing it, whether anyone notices.
+
+Additionally, when you write code yourself, you build the idea from the ground up. Even months later, you can often reason about it because the structure reflects your thinking. When code is generated, that doesn't happen. You might read it, even understand it in the moment, but the details don't stick. You didn't really build it — it was more so handed to you.
+
+AI-generated code also tends to be more verbose. Human code is terse, opinionated, shaped by someone's mental model. Generated code is often correct but generic — there's more of it, and it's harder to hold in your head. Over time, if fewer people deeply understand how things are implemented, the ability to reason about technical decisions falls apart. The codebase grows and the collective understanding of it can’t keep up.
+
+It's not just code, either. RFCs and ADRs have become harder to review too. They're verbose, never get to the point, include unnecessary tables and formatting that make parsing harder. Yes, sometimes the Mermaid diagrams are useful. But it feels like using a bazooka instead of a scalpel. Though I’ll try to be fair here too: different people have different writing skills. Some find it genuinely challenging to start with a blank page. AI helps them get something down, and that's not nothing.
+
+But maybe the problem isn't AI itself. Perhaps our processes and conventions are lagging behind. Our human-centric approaches might simply not work for AI-assisted development. AI needs context that's as strict and narrow as possible, so it can implement a solution within specific constraints. Except, changing the human-centric approach to a more rigid one just to satisfy the machine feels like losing something important. Right now, the way we work feels creative, lively, like craftsmanship. I would rather not trade that for a process optimised for machines.
+
+If that's the case, then the human should be the one deciding specifically how to approach a problem, keeping our human-centric ideas intact, and only optionally using AI for the narrow purpose of writing code they already had in their mind. But AI seems to be moving in the opposite direction, toward agentic systems that take on more and more of the decision-making. That trajectory feels incompatible with what I'm describing.
+
+Either way, even if AI is actually "intelligence" in any sense of the word, it's definitely an alien one. It would require us to learn how to work with it properly, introducing it slowly into the toolkit as a collaborator rather than mindlessly delegating work to it and having people parse through the output.
+
+I don't have a neat conclusion. I'm not even sure this is a coherent argument. But I think it's something worth articulating, even if only to name the discomfort.
+
+<DatePublished dateTime={metadata.datePublished} />
