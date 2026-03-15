@@ -1,4 +1,3 @@
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`bg-white font-sans text-gray-950 antialiased dark:bg-black dark:text-gray-50 ${inter.variable} ${charis.variable}`}
       >
         <DynamicLayout>{children}</DynamicLayout>
-        <Analytics />
       </body>
     </html>
   );

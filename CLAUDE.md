@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture
 
-Next.js 16 App Router personal site + blog. Deployed on Vercel.
+Next.js 16 App Router personal site + blog. Deployed on Railway.
 
 ### Content
 
