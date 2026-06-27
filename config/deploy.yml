@@ -1,0 +1,21 @@
+service: pukhanov-ru
+image: vpukhanov/pukhanov-ru
+
+servers:
+  - 161.104.46.54
+
+proxy:
+  ssl: true
+  host: pukhanov.ru
+  app_port: 3000
+  healthcheck:
+    path: /
+    interval: 5
+
+registry:
+  server: localhost:5555
+
+builder:
+  arch: amd64
+
+asset_path: /app/.next
